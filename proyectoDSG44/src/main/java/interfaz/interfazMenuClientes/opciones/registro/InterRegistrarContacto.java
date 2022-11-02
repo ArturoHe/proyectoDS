@@ -20,12 +20,12 @@ import javax.swing.ImageIcon;
  *
  * @author Arturo
  */
-public class InterRegistrar extends javax.swing.JFrame {
+public class InterRegistrarContacto extends javax.swing.JFrame {
 
     /**
      * Creates new form menuPrincipal
      */
-    public InterRegistrar() {
+    public InterRegistrarContacto() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
@@ -55,8 +55,17 @@ public class InterRegistrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelTipoDoc1 = new javax.swing.JLabel();
-        labelNumeroDoc1 = new javax.swing.JLabel();
+        botonCompletarReg = new javax.swing.JButton();
+        fieldApellidos1 = new javax.swing.JTextField();
+        fieldApellidos2 = new javax.swing.JTextField();
+        fieldApellidos3 = new javax.swing.JTextField();
+        labelDireccion = new javax.swing.JLabel();
+        labelPostal = new javax.swing.JLabel();
+        labelCiudad = new javax.swing.JLabel();
+        labelPais = new javax.swing.JLabel();
+        listaPaises = new javax.swing.JComboBox<>();
+        labelNombres = new javax.swing.JLabel();
+        labelApellidos = new javax.swing.JLabel();
         fieldNombres = new javax.swing.JTextField();
         fieldApellidos = new javax.swing.JTextField();
         listaTiposDoc = new javax.swing.JComboBox<>();
@@ -79,11 +88,44 @@ public class InterRegistrar extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelTipoDoc1.setText("Nombres");
-        getContentPane().add(labelTipoDoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
+        botonCompletarReg.setText("Completar Registro");
+        getContentPane().add(botonCompletarReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 150, -1));
 
-        labelNumeroDoc1.setText("Apellidos");
-        getContentPane().add(labelNumeroDoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
+        fieldApellidos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldApellidos1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fieldApellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 220, -1));
+        getContentPane().add(fieldApellidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 220, -1));
+        getContentPane().add(fieldApellidos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 220, -1));
+
+        labelDireccion.setText("Direccion de Residencia");
+        getContentPane().add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
+
+        labelPostal.setText("Codigo Postal");
+        getContentPane().add(labelPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, -1, -1));
+
+        labelCiudad.setText("Ciudad de Residencia");
+        getContentPane().add(labelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
+
+        labelPais.setText("Pais de Residencia");
+        getContentPane().add(labelPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
+
+        listaPaises.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas", "Marshall", "Islas", "Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva", "Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva", "Guinea", "Paraguay", "Perú Polonia Portugal Reino Unido República Centroafricana República Checa República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        listaPaises.setBorder(null);
+        listaPaises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaPaisesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(listaPaises, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 220, -1));
+
+        labelNombres.setText("Nombres");
+        getContentPane().add(labelNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, -1, -1));
+
+        labelApellidos.setText("Apellidos");
+        getContentPane().add(labelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
         getContentPane().add(fieldNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 220, -1));
         getContentPane().add(fieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 220, -1));
 
@@ -97,10 +139,10 @@ public class InterRegistrar extends javax.swing.JFrame {
         getContentPane().add(listaTiposDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 220, -1));
 
         labelNumeroDoc.setText("Numero de Documento");
-        getContentPane().add(labelNumeroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
+        getContentPane().add(labelNumeroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
 
         labelTipoDoc.setText("Tipo de Documento");
-        getContentPane().add(labelTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, -1));
+        getContentPane().add(labelTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
 
         labelFechaNacimiento.setText("Fecha de nacimiento");
         getContentPane().add(labelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
@@ -177,7 +219,7 @@ public class InterRegistrar extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(botonAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +275,7 @@ public class InterRegistrar extends javax.swing.JFrame {
                 .addComponent(botonMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(botonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelOpcionesVentanaLayout.setVerticalGroup(
             panelOpcionesVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,6 +369,14 @@ public class InterRegistrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNumeroDocumentoActionPerformed
 
+    private void listaPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPaisesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPaisesActionPerformed
+
+    private void fieldApellidos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldApellidos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldApellidos1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,14 +394,18 @@ public class InterRegistrar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarContacto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarContacto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarContacto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarContacto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -360,7 +414,7 @@ public class InterRegistrar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterRegistrar().setVisible(true);
+                new InterRegistrarContacto().setVisible(true);
             }
         });
     }
@@ -369,20 +423,29 @@ public class InterRegistrar extends javax.swing.JFrame {
     private javax.swing.JButton botonAerolinea;
     private javax.swing.JButton botonCerrar;
     private javax.swing.JButton botonClientes;
+    private javax.swing.JButton botonCompletarReg;
     private javax.swing.JButton botonMinimizar;
     private javax.swing.JTextField fieldApellidos;
+    private javax.swing.JTextField fieldApellidos1;
+    private javax.swing.JTextField fieldApellidos2;
+    private javax.swing.JTextField fieldApellidos3;
     private javax.swing.JTextField fieldNombres;
     private javax.swing.JTextField fieldNumeroDocumento;
     private javax.swing.JLabel fondo;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel labelApellidos;
+    private javax.swing.JLabel labelCiudad;
+    private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelFechaNacimiento;
+    private javax.swing.JLabel labelNombres;
     private javax.swing.JLabel labelNumeroDoc;
-    private javax.swing.JLabel labelNumeroDoc1;
+    private javax.swing.JLabel labelPais;
+    private javax.swing.JLabel labelPostal;
     private javax.swing.JLabel labelTipoDoc;
-    private javax.swing.JLabel labelTipoDoc1;
     private javax.swing.JComboBox<String> listaAños;
     private javax.swing.JComboBox<String> listaDias;
     private javax.swing.JComboBox<String> listaMeses;
+    private javax.swing.JComboBox<String> listaPaises;
     private javax.swing.JComboBox<String> listaTiposDoc;
     private javax.swing.JPanel panelOpcionesVentana;
     // End of variables declaration//GEN-END:variables
