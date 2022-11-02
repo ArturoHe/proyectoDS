@@ -55,10 +55,12 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonCompletarReg = new javax.swing.JButton();
-        fieldApellidos1 = new javax.swing.JTextField();
-        fieldApellidos2 = new javax.swing.JTextField();
-        fieldApellidos3 = new javax.swing.JTextField();
+        labelTitulo = new javax.swing.JLabel();
+        botonCompletarReg1 = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
+        fieldDireccion = new javax.swing.JTextField();
+        fieldCodigoPostal = new javax.swing.JTextField();
+        fieldCiudad = new javax.swing.JTextField();
         labelDireccion = new javax.swing.JLabel();
         labelPostal = new javax.swing.JLabel();
         labelCiudad = new javax.swing.JLabel();
@@ -76,9 +78,6 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
         listaDias = new javax.swing.JComboBox<>();
         listaAños = new javax.swing.JComboBox<>();
         listaMeses = new javax.swing.JComboBox<>();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        botonAerolinea = new javax.swing.JButton();
-        botonClientes = new javax.swing.JButton();
         panelOpcionesVentana = new javax.swing.JPanel();
         botonMinimizar = new javax.swing.JButton();
         botonCerrar = new javax.swing.JButton();
@@ -88,44 +87,57 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonCompletarReg.setText("Completar Registro");
-        getContentPane().add(botonCompletarReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 150, -1));
+        labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("Registro - Contacto de emergencia");
+        getContentPane().add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 360, -1));
 
-        fieldApellidos1.addActionListener(new java.awt.event.ActionListener() {
+        botonCompletarReg1.setText("Completar Registro");
+        getContentPane().add(botonCompletarReg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 150, -1));
+
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldApellidos1ActionPerformed(evt);
+                botonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(fieldApellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 220, -1));
-        getContentPane().add(fieldApellidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 220, -1));
-        getContentPane().add(fieldApellidos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 220, -1));
+        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 80, -1));
+
+        fieldDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldDireccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 220, -1));
+        getContentPane().add(fieldCodigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 220, -1));
+        getContentPane().add(fieldCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 220, -1));
 
         labelDireccion.setText("Direccion de Residencia");
-        getContentPane().add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
+        getContentPane().add(labelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, -1, -1));
 
         labelPostal.setText("Codigo Postal");
-        getContentPane().add(labelPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, -1, -1));
+        getContentPane().add(labelPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 416, -1, 100));
 
         labelCiudad.setText("Ciudad de Residencia");
-        getContentPane().add(labelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, -1, -1));
+        getContentPane().add(labelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, -1, -1));
 
         labelPais.setText("Pais de Residencia");
-        getContentPane().add(labelPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
+        getContentPane().add(labelPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
-        listaPaises.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas", "Marshall", "Islas", "Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva", "Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva", "Guinea", "Paraguay", "Perú Polonia Portugal Reino Unido República Centroafricana República Checa República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        listaPaises.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas", "Marshall", "Islas", "Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva", "Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva", "Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
         listaPaises.setBorder(null);
         listaPaises.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaPaisesActionPerformed(evt);
             }
         });
-        getContentPane().add(listaPaises, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 220, -1));
+        getContentPane().add(listaPaises, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 220, -1));
 
         labelNombres.setText("Nombres");
-        getContentPane().add(labelNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, -1, -1));
+        getContentPane().add(labelNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         labelApellidos.setText("Apellidos");
-        getContentPane().add(labelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+        getContentPane().add(labelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
         getContentPane().add(fieldNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 220, -1));
         getContentPane().add(fieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 220, -1));
 
@@ -136,16 +148,16 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
                 listaTiposDocActionPerformed(evt);
             }
         });
-        getContentPane().add(listaTiposDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 220, -1));
+        getContentPane().add(listaTiposDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 220, -1));
 
         labelNumeroDoc.setText("Numero de Documento");
-        getContentPane().add(labelNumeroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
+        getContentPane().add(labelNumeroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
 
         labelTipoDoc.setText("Tipo de Documento");
-        getContentPane().add(labelTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
+        getContentPane().add(labelTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
 
         labelFechaNacimiento.setText("Fecha de nacimiento");
-        getContentPane().add(labelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
+        getContentPane().add(labelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
 
         fieldNumeroDocumento.setBorder(null);
         fieldNumeroDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +165,7 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
                 fieldNumeroDocumentoActionPerformed(evt);
             }
         });
-        getContentPane().add(fieldNumeroDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 220, 20));
+        getContentPane().add(fieldNumeroDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 220, 20));
 
         listaDias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         listaDias.setBorder(null);
@@ -162,7 +174,7 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
                 listaDiasActionPerformed(evt);
             }
         });
-        getContentPane().add(listaDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 340, 60, -1));
+        getContentPane().add(listaDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 60, -1));
         listaDias.getAccessibleContext().setAccessibleDescription("");
 
         listaAños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
@@ -172,7 +184,7 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
                 listaAñosActionPerformed(evt);
             }
         });
-        getContentPane().add(listaAños, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 60, -1));
+        getContentPane().add(listaAños, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 60, -1));
 
         listaMeses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         listaMeses.setBorder(null);
@@ -181,57 +193,7 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
                 listaMesesActionPerformed(evt);
             }
         });
-        getContentPane().add(listaMeses, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 60, -1));
-
-        botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline.png"))); // NOI18N
-        botonAerolinea.setBorderPainted(false);
-        botonAerolinea.setContentAreaFilled(false);
-        botonAerolinea.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonAerolineaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonAerolineaMouseExited(evt);
-            }
-        });
-
-        botonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionUsuarios.png"))); // NOI18N
-        botonClientes.setBorderPainted(false);
-        botonClientes.setContentAreaFilled(false);
-        botonClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonClientesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonClientesMouseExited(evt);
-            }
-        });
-
-        jLayeredPane1.setLayer(botonAerolinea, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(botonClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(botonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(botonAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
-
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 340, 240));
+        getContentPane().add(listaMeses, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 60, -1));
 
         panelOpcionesVentana.setOpaque(false);
 
@@ -329,26 +291,6 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
         minimizarPrograma();
     }//GEN-LAST:event_botonMinimizarMouseClicked
 
-    private void botonClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonClientesMouseEntered
-        // TODO add your handling code here:
-        botonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionUsuarios2.png")));
-    }//GEN-LAST:event_botonClientesMouseEntered
-
-    private void botonClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonClientesMouseExited
-        // TODO add your handling code here:
-        botonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionUsuarios.png")));
-    }//GEN-LAST:event_botonClientesMouseExited
-
-    private void botonAerolineaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAerolineaMouseExited
-        // TODO add your handling code here:
-        botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline.png")));
-    }//GEN-LAST:event_botonAerolineaMouseExited
-
-    private void botonAerolineaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAerolineaMouseEntered
-        // TODO add your handling code here:
-        botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline2.png")));
-    }//GEN-LAST:event_botonAerolineaMouseEntered
-
     private void listaDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDiasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listaDiasActionPerformed
@@ -373,9 +315,13 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_listaPaisesActionPerformed
 
-    private void fieldApellidos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldApellidos1ActionPerformed
+    private void fieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDireccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldApellidos1ActionPerformed
+    }//GEN-LAST:event_fieldDireccionActionPerformed
+
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,19 +366,17 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAerolinea;
+    private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonCerrar;
-    private javax.swing.JButton botonClientes;
-    private javax.swing.JButton botonCompletarReg;
+    private javax.swing.JButton botonCompletarReg1;
     private javax.swing.JButton botonMinimizar;
     private javax.swing.JTextField fieldApellidos;
-    private javax.swing.JTextField fieldApellidos1;
-    private javax.swing.JTextField fieldApellidos2;
-    private javax.swing.JTextField fieldApellidos3;
+    private javax.swing.JTextField fieldCiudad;
+    private javax.swing.JTextField fieldCodigoPostal;
+    private javax.swing.JTextField fieldDireccion;
     private javax.swing.JTextField fieldNombres;
     private javax.swing.JTextField fieldNumeroDocumento;
     private javax.swing.JLabel fondo;
-    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLabel labelApellidos;
     private javax.swing.JLabel labelCiudad;
     private javax.swing.JLabel labelDireccion;
@@ -442,6 +386,7 @@ public class InterRegistrarContacto extends javax.swing.JFrame {
     private javax.swing.JLabel labelPais;
     private javax.swing.JLabel labelPostal;
     private javax.swing.JLabel labelTipoDoc;
+    private javax.swing.JLabel labelTitulo;
     private javax.swing.JComboBox<String> listaAños;
     private javax.swing.JComboBox<String> listaDias;
     private javax.swing.JComboBox<String> listaMeses;

@@ -1,0 +1,4 @@
+Ver 1.02
+
+-Se agrega archivo cambiosVersion.txt, para llevar registro en el IDE de los cambios hechos en la version.
+-Se termina la parte visual de Registro Clientes.

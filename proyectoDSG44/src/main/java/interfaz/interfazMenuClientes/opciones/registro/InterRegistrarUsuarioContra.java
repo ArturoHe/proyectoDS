@@ -20,15 +20,17 @@ import javax.swing.ImageIcon;
  *
  * @author Arturo
  */
-public class InterRegistrar extends javax.swing.JFrame {
+public class InterRegistrarUsuarioContra extends javax.swing.JFrame {
 
     /**
      * Creates new form menuPrincipal
      */
-    public InterRegistrar() {
+    public InterRegistrarUsuarioContra() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
+        fieldPassword.setEchoChar('*');
+        fieldRepetirPassword.setEchoChar('*');
 
         //this.setSize(300, 200);
     }
@@ -55,21 +57,18 @@ public class InterRegistrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonCancelar = new javax.swing.JButton();
-        botonCompletarReg1 = new javax.swing.JButton();
+        labelErrorInicio = new javax.swing.JLabel();
+        botonVerRepContra = new javax.swing.JButton();
+        botonVerContra = new javax.swing.JButton();
+        fieldPassword = new javax.swing.JPasswordField();
+        fieldRepetirPassword = new javax.swing.JPasswordField();
         labelTitulo = new javax.swing.JLabel();
-        labelTipoDoc1 = new javax.swing.JLabel();
-        labelNumeroDoc1 = new javax.swing.JLabel();
-        fieldNombres = new javax.swing.JTextField();
-        fieldApellidos = new javax.swing.JTextField();
-        listaTiposDoc = new javax.swing.JComboBox<>();
-        labelNumeroDoc = new javax.swing.JLabel();
-        labelTipoDoc = new javax.swing.JLabel();
-        labelFechaNacimiento = new javax.swing.JLabel();
-        fieldNumeroDocumento = new javax.swing.JTextField();
-        listaDias = new javax.swing.JComboBox<>();
-        listaAños = new javax.swing.JComboBox<>();
-        listaMeses = new javax.swing.JComboBox<>();
+        botonFinalizar = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
+        labelUsuario = new javax.swing.JLabel();
+        labelContraseña = new javax.swing.JLabel();
+        fieldUsuario = new javax.swing.JTextField();
+        labelRepetirContra = new javax.swing.JLabel();
         panelOpcionesVentana = new javax.swing.JPanel();
         botonMinimizar = new javax.swing.JButton();
         botonCerrar = new javax.swing.JButton();
@@ -79,83 +78,74 @@ public class InterRegistrar extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelErrorInicio.setText("dsadsadasdsad");
+        getContentPane().add(labelErrorInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 360, -1));
+
+        botonVerRepContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botonVerRepContraMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botonVerRepContraMouseReleased(evt);
+            }
+        });
+        getContentPane().add(botonVerRepContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, 20, 20));
+
+        botonVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botonVerContraMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botonVerContraMouseReleased(evt);
+            }
+        });
+        getContentPane().add(botonVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 150, 20, 20));
+
+        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 220, -1));
+
+        fieldRepetirPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldRepetirPasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fieldRepetirPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 220, -1));
+
+        labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("Registro - Contacto de emergencia");
+        getContentPane().add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 360, -1));
+
+        botonFinalizar.setText("Finalizar");
+        botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFinalizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 80, -1));
+
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 80, -1));
+        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 80, -1));
 
-        botonCompletarReg1.setText("Completar Registro");
-        getContentPane().add(botonCompletarReg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 150, -1));
+        labelUsuario.setText("Usuario");
+        getContentPane().add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
-        labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
-        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTitulo.setText("Registro");
-        getContentPane().add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 360, -1));
+        labelContraseña.setText("Contraseña");
+        getContentPane().add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+        getContentPane().add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 220, -1));
 
-        labelTipoDoc1.setText("Nombres");
-        getContentPane().add(labelTipoDoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
-
-        labelNumeroDoc1.setText("Apellidos");
-        getContentPane().add(labelNumeroDoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
-        getContentPane().add(fieldNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 220, -1));
-        getContentPane().add(fieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 220, -1));
-
-        listaTiposDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de ciudadania", "Pasaporte", "Documento de identificacion Extranjero" }));
-        listaTiposDoc.setBorder(null);
-        listaTiposDoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaTiposDocActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listaTiposDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 220, -1));
-
-        labelNumeroDoc.setText("Numero de Documento");
-        getContentPane().add(labelNumeroDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
-
-        labelTipoDoc.setText("Tipo de Documento");
-        getContentPane().add(labelTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
-
-        labelFechaNacimiento.setText("Fecha de nacimiento");
-        getContentPane().add(labelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
-
-        fieldNumeroDocumento.setBorder(null);
-        fieldNumeroDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldNumeroDocumentoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(fieldNumeroDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 220, 20));
-
-        listaDias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        listaDias.setBorder(null);
-        listaDias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaDiasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listaDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 60, -1));
-        listaDias.getAccessibleContext().setAccessibleDescription("");
-
-        listaAños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-        listaAños.setBorder(null);
-        listaAños.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaAñosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listaAños, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 60, -1));
-
-        listaMeses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        listaMeses.setBorder(null);
-        listaMeses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaMesesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listaMeses, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 60, -1));
+        labelRepetirContra.setText("Repetir Contraseña");
+        getContentPane().add(labelRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
         panelOpcionesVentana.setOpaque(false);
 
@@ -199,7 +189,7 @@ public class InterRegistrar extends javax.swing.JFrame {
                 .addComponent(botonMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(botonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelOpcionesVentanaLayout.setVerticalGroup(
             panelOpcionesVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,6 +208,14 @@ public class InterRegistrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCancelarActionPerformed
+
+    private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonFinalizarActionPerformed
 
     private void botonCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCerrarMouseExited
         // TODO add your handling code here:
@@ -253,29 +251,41 @@ public class InterRegistrar extends javax.swing.JFrame {
         minimizarPrograma();
     }//GEN-LAST:event_botonMinimizarMouseClicked
 
-    private void listaDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDiasActionPerformed
+    private void botonVerContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerContraMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listaDiasActionPerformed
 
-    private void listaMesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaMesesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaMesesActionPerformed
+        fieldPassword.setEchoChar((char) 0);
 
-    private void listaAñosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAñosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaAñosActionPerformed
+    }//GEN-LAST:event_botonVerContraMousePressed
 
-    private void listaTiposDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTiposDocActionPerformed
+    private void botonVerContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerContraMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_listaTiposDocActionPerformed
+        fieldPassword.setEchoChar('*');
+        
+    }//GEN-LAST:event_botonVerContraMouseReleased
 
-    private void fieldNumeroDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNumeroDocumentoActionPerformed
+    private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldNumeroDocumentoActionPerformed
+    }//GEN-LAST:event_fieldPasswordActionPerformed
 
-    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+    private void fieldRepetirPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldRepetirPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonCancelarActionPerformed
+    }//GEN-LAST:event_fieldRepetirPasswordActionPerformed
+
+    private void botonVerRepContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerRepContraMousePressed
+        // TODO add your handling code here:
+        
+        fieldRepetirPassword.setEchoChar((char) 0);
+        
+    }//GEN-LAST:event_botonVerRepContraMousePressed
+
+    private void botonVerRepContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerRepContraMouseReleased
+        // TODO add your handling code here:
+        
+        fieldRepetirPassword.setEchoChar('*');
+        
+        
+    }//GEN-LAST:event_botonVerRepContraMouseReleased
 
     /**
      * @param args the command line arguments
@@ -294,14 +304,26 @@ public class InterRegistrar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarUsuarioContra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarUsuarioContra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarUsuarioContra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrarUsuarioContra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -310,7 +332,7 @@ public class InterRegistrar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterRegistrar().setVisible(true);
+                new InterRegistrarUsuarioContra().setVisible(true);
             }
         });
     }
@@ -318,22 +340,19 @@ public class InterRegistrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonCerrar;
-    private javax.swing.JButton botonCompletarReg1;
+    private javax.swing.JButton botonFinalizar;
     private javax.swing.JButton botonMinimizar;
-    private javax.swing.JTextField fieldApellidos;
-    private javax.swing.JTextField fieldNombres;
-    private javax.swing.JTextField fieldNumeroDocumento;
+    private javax.swing.JButton botonVerContra;
+    private javax.swing.JButton botonVerRepContra;
+    private javax.swing.JPasswordField fieldPassword;
+    private javax.swing.JPasswordField fieldRepetirPassword;
+    private javax.swing.JTextField fieldUsuario;
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel labelFechaNacimiento;
-    private javax.swing.JLabel labelNumeroDoc;
-    private javax.swing.JLabel labelNumeroDoc1;
-    private javax.swing.JLabel labelTipoDoc;
-    private javax.swing.JLabel labelTipoDoc1;
+    private javax.swing.JLabel labelContraseña;
+    private javax.swing.JLabel labelErrorInicio;
+    private javax.swing.JLabel labelRepetirContra;
     private javax.swing.JLabel labelTitulo;
-    private javax.swing.JComboBox<String> listaAños;
-    private javax.swing.JComboBox<String> listaDias;
-    private javax.swing.JComboBox<String> listaMeses;
-    private javax.swing.JComboBox<String> listaTiposDoc;
+    private javax.swing.JLabel labelUsuario;
     private javax.swing.JPanel panelOpcionesVentana;
     // End of variables declaration//GEN-END:variables
 }
