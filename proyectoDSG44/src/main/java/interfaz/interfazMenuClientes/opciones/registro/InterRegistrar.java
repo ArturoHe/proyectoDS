@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz.interfazMenuClientes;
+package interfaz.interfazMenuClientes.opciones.registro;
 
+import interfaz.interfazMenuClientes.*;
 import interfaz.interfazMenuPrincipal.*;
 import java.awt.Color;
 import java.awt.Image;
@@ -19,15 +20,16 @@ import javax.swing.ImageIcon;
  *
  * @author Arturo
  */
-public class menuClientes extends javax.swing.JFrame {
+public class InterRegistrar extends javax.swing.JFrame {
 
     /**
      * Creates new form menuPrincipal
      */
-    public menuClientes() {
+    public InterRegistrar() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
+
         //this.setSize(300, 200);
     }
 
@@ -53,8 +55,14 @@ public class menuClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        listaDias1 = new javax.swing.JComboBox<>();
+        labelDia1 = new javax.swing.JLabel();
+        labelDia = new javax.swing.JLabel();
+        labelAño = new javax.swing.JLabel();
+        labelMes = new javax.swing.JLabel();
+        listaDias = new javax.swing.JComboBox<>();
+        listaMeses = new javax.swing.JComboBox<>();
+        listaAños = new javax.swing.JComboBox<>();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         botonAerolinea = new javax.swing.JButton();
         botonClientes = new javax.swing.JButton();
@@ -67,21 +75,54 @@ public class menuClientes extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        listaDias1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de ciudadania", "Pasaporte", "Documento de identificacion Extranjero" }));
+        listaDias1.setBorder(null);
+        listaDias1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                listaDias1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 230, -1, -1));
+        getContentPane().add(listaDias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 220, -1));
 
-        jButton2.setText("Registrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        labelDia1.setText("Tipo de Documento");
+        getContentPane().add(labelDia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, -1));
+
+        labelDia.setText("Dia de nacimiento");
+        getContentPane().add(labelDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, -1, -1));
+
+        labelAño.setText("Año de nacimiento");
+        getContentPane().add(labelAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
+
+        labelMes.setText("Mes de nacimiento");
+        getContentPane().add(labelMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
+
+        listaDias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        listaDias.setBorder(null);
+        listaDias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                listaDiasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, -1, -1));
+        getContentPane().add(listaDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 60, -1));
+        listaDias.getAccessibleContext().setAccessibleDescription("");
+
+        listaMeses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        listaMeses.setBorder(null);
+        listaMeses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaMesesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(listaMeses, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 60, -1));
+
+        listaAños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        listaAños.setBorder(null);
+        listaAños.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaAñosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(listaAños, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 60, -1));
 
         botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline.png"))); // NOI18N
         botonAerolinea.setBorderPainted(false);
@@ -249,13 +290,21 @@ public class menuClientes extends javax.swing.JFrame {
         botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline2.png")));
     }//GEN-LAST:event_botonAerolineaMouseEntered
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void listaDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDiasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_listaDiasActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void listaMesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaMesesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_listaMesesActionPerformed
+
+    private void listaAñosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAñosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaAñosActionPerformed
+
+    private void listaDias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDias1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaDias1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,27 +317,29 @@ public class menuClientes extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menuClientes().setVisible(true);
+                new InterRegistrar().setVisible(true);
             }
         });
     }
@@ -299,9 +350,15 @@ public class menuClientes extends javax.swing.JFrame {
     private javax.swing.JButton botonClientes;
     private javax.swing.JButton botonMinimizar;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel labelAño;
+    private javax.swing.JLabel labelDia;
+    private javax.swing.JLabel labelDia1;
+    private javax.swing.JLabel labelMes;
+    private javax.swing.JComboBox<String> listaAños;
+    private javax.swing.JComboBox<String> listaDias;
+    private javax.swing.JComboBox<String> listaDias1;
+    private javax.swing.JComboBox<String> listaMeses;
     private javax.swing.JPanel panelOpcionesVentana;
     // End of variables declaration//GEN-END:variables
 }
