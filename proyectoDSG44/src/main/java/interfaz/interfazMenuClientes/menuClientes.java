@@ -5,6 +5,7 @@
  */
 package interfaz.interfazMenuClientes;
 
+import interfaz.interfazMenuClientes.opciones.registro.InterRegistrar;
 import interfaz.interfazMenuPrincipal.*;
 import java.awt.Color;
 import java.awt.Image;
@@ -28,7 +29,6 @@ public class menuClientes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
-        //this.setSize(300, 200);
     }
 
     //metodos Propios
@@ -68,6 +68,11 @@ public class menuClientes extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -256,6 +261,13 @@ public class menuClientes extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        InterRegistrar pantallaRegistro = new InterRegistrar();
+        this.setVisible(false);
+        pantallaRegistro.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
