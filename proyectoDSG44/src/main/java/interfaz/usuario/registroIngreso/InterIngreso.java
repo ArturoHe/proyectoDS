@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz.interfazMenuClientes.opciones.ingreso;
+package interfaz.usuario.registroIngreso;
+
+import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
+import java.awt.BorderLayout;
 
 /**
  *
  * @author Arturo
  */
-public class Ingreso extends javax.swing.JPanel {
+public class InterIngreso extends javax.swing.JPanel {
 
     /**
      * Creates new form Ingreso
      */
-    public Ingreso() {
+    public InterIngreso() {
         initComponents();
     }
 
@@ -27,16 +30,24 @@ public class Ingreso extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        base = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
-        labelUsuario = new javax.swing.JLabel();
         fieldUsuario = new javax.swing.JTextField();
+        labelUsuario = new javax.swing.JLabel();
         labelContraseña = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JPasswordField();
         botonCancelar = new javax.swing.JButton();
         botonFinalizar = new javax.swing.JButton();
         labelErrorInicio = new javax.swing.JLabel();
 
+        setLayout(new java.awt.BorderLayout());
+
+        base.setBackground(new java.awt.Color(255, 255, 153));
+        base.setMinimumSize(new java.awt.Dimension(1300, 570));
+        base.setPreferredSize(new java.awt.Dimension(1300, 570));
+
         labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Ingreso Usuarios");
 
@@ -67,50 +78,52 @@ public class Ingreso extends javax.swing.JPanel {
         labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelErrorInicio.setText("dsadsadasdsad");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
+        base.setLayout(baseLayout);
+        baseLayout.setHorizontalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(labelUsuario)
                         .addGap(100, 100, 100)
                         .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(labelContraseña)
                         .addGap(80, 80, 80)
                         .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(200, 200, 200)
                         .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(681, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+        baseLayout.setVerticalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
                 .addComponent(labelTitulo)
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelUsuario)
                     .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelContraseña)
                     .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCancelar)
                     .addComponent(botonFinalizar))
                 .addGap(18, 18, 18)
                 .addComponent(labelErrorInicio)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
+
+        add(base, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
@@ -123,10 +136,19 @@ public class Ingreso extends javax.swing.JPanel {
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
         // TODO add your handling code here:
+        BaseInterfazUsuario InterfazUsuario = new BaseInterfazUsuario();
+        InterfazUsuario.setSize(1300, 570);
+        InterfazUsuario.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(InterfazUsuario, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
     }//GEN-LAST:event_botonFinalizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel base;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonFinalizar;
     private javax.swing.JPasswordField fieldPassword;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz.interfazMenuClientes.opciones.registro;
+package interfaz.usuario.registroIngreso;
 
 /**
  *
@@ -27,6 +27,7 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        base = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
         fieldUsuario = new javax.swing.JTextField();
@@ -40,9 +41,14 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
         botonVerRepContra = new javax.swing.JButton();
         labelErrorInicio = new javax.swing.JLabel();
 
+        setLayout(new java.awt.BorderLayout());
+
+        base.setBackground(new java.awt.Color(255, 255, 153));
+        base.setPreferredSize(new java.awt.Dimension(1300, 570));
+
         labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTitulo.setText("Registro - Contacto de emergencia");
+        labelTitulo.setText("Creacion de usuario");
 
         labelUsuario.setText("Usuario");
 
@@ -97,64 +103,66 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
         labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelErrorInicio.setText("dsadsadasdsad");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
+        base.setLayout(baseLayout);
+        baseLayout.setHorizontalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addGap(441, 441, 441)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(labelUsuario)
                         .addGap(100, 100, 100)
                         .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(labelContraseña)
                         .addGap(80, 80, 80)
                         .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(labelRepetirContra)
                         .addGap(40, 40, 40)
                         .addComponent(fieldRepetirPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(botonVerRepContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(200, 200, 200)
                         .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(461, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+        baseLayout.setVerticalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseLayout.createSequentialGroup()
+                .addGap(114, 114, 114)
                 .addComponent(labelTitulo)
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelUsuario)
                     .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelContraseña)
                     .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelRepetirContra)
                     .addComponent(fieldRepetirPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVerRepContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCancelar)
                     .addComponent(botonFinalizar))
                 .addGap(18, 18, 18)
                 .addComponent(labelErrorInicio)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
+
+        add(base, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonVerContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerContraMousePressed
@@ -166,7 +174,6 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
     private void botonVerContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerContraMouseReleased
         // TODO add your handling code here:
         fieldPassword.setEchoChar('*');
-
     }//GEN-LAST:event_botonVerContraMouseReleased
 
     private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
@@ -189,18 +196,17 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         fieldRepetirPassword.setEchoChar((char) 0);
-
     }//GEN-LAST:event_botonVerRepContraMousePressed
 
     private void botonVerRepContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerRepContraMouseReleased
         // TODO add your handling code here:
 
         fieldRepetirPassword.setEchoChar('*');
-
     }//GEN-LAST:event_botonVerRepContraMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel base;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonFinalizar;
     private javax.swing.JButton botonVerContra;

@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package interfaz.Bienvenida;
+package interfaz.launcher;
 
-import interfaz.interfazMenuPrincipal.panelIzquierdo.Launcher;
+import interfaz.MenuIngresoRegistro;
+
+import java.awt.BorderLayout;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JPanel;
@@ -14,17 +11,16 @@ import javax.swing.JPanel;
  *
  * @author Arturo
  */
-public class Bienvenida extends javax.swing.JFrame {
+public class Launcher extends javax.swing.JFrame {
 
     /**
      * Creates new form menuPrincipal
      */
-    public Bienvenida() {
+    public Launcher() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
-
-        JPanel panelIzquierdo = new JPanel();
+        iniciarPrograma();
 
     }
 
@@ -41,6 +37,18 @@ public class Bienvenida extends javax.swing.JFrame {
 
     }
 
+    public void iniciarPrograma() {
+        PrincipalOpciones inicio = new PrincipalOpciones();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,25 +58,15 @@ public class Bienvenida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonIngreso = new javax.swing.JButton();
         panelOpcionesVentana = new javax.swing.JPanel();
         botonMinimizar = new javax.swing.JButton();
         botonCerrar = new javax.swing.JButton();
+        base = new javax.swing.JPanel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        botonIngreso.setText("Ingresar");
-        botonIngreso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonIngresoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(botonIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 440, 150));
-
-        panelOpcionesVentana.setOpaque(false);
 
         botonMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/botonMinimizar.png"))); // NOI18N
         botonMinimizar.setBorderPainted(false);
@@ -124,7 +122,23 @@ public class Bienvenida extends javax.swing.JFrame {
 
         getContentPane().add(panelOpcionesVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, 120, 30));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/baseTest2.png"))); // NOI18N
+        base.setBackground(new java.awt.Color(153, 255, 153));
+
+        javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
+        base.setLayout(baseLayout);
+        baseLayout.setHorizontalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1300, Short.MAX_VALUE)
+        );
+        baseLayout.setVerticalGroup(
+            baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 570, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(base, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1300, 570));
+
+        fondo.setBackground(new java.awt.Color(204, 255, 153));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/filtro.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -164,20 +178,6 @@ public class Bienvenida extends javax.swing.JFrame {
         minimizarPrograma();
     }//GEN-LAST:event_botonMinimizarMouseClicked
 
-    private void botonIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresoActionPerformed
-        // TODO add your handling code here:
-        Launcher lanzador = new Launcher();
-
-        
-
-        lanzador.setVisible(true);
-        this.setVisible(false);
-        System.out.println("hola");
-        this.dispose();
-
-
-    }//GEN-LAST:event_botonIngresoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -195,18 +195,14 @@ public class Bienvenida extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -215,15 +211,15 @@ public class Bienvenida extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bienvenida().setVisible(true);
+                new Launcher().setVisible(true);
             }
         });
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel base;
     private javax.swing.JButton botonCerrar;
-    private javax.swing.JButton botonIngreso;
     private javax.swing.JButton botonMinimizar;
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel panelOpcionesVentana;
