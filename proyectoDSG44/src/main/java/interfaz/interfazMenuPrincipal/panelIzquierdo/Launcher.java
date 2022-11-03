@@ -3,32 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz.interfazMenuClientes;
+package interfaz.interfazMenuPrincipal.panelIzquierdo;
 
-import interfaz.interfazMenuClientes.opciones.registro.InterRegistrar;
-import interfaz.interfazMenuPrincipal.*;
-import java.awt.Color;
-import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+
+import javax.swing.JPanel;
 
 /**
  *
  * @author Arturo
  */
-public class menuClientes extends javax.swing.JFrame {
+public class Launcher extends javax.swing.JFrame {
 
     /**
      * Creates new form menuPrincipal
      */
-    public menuClientes() {
+    public Launcher() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
+
+        JPanel panelIzquierdo = new JPanel();
+
     }
 
     //metodos Propios
@@ -53,11 +49,6 @@ public class menuClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        botonAerolinea = new javax.swing.JButton();
-        botonClientes = new javax.swing.JButton();
         panelOpcionesVentana = new javax.swing.JPanel();
         botonMinimizar = new javax.swing.JButton();
         botonCerrar = new javax.swing.JButton();
@@ -66,77 +57,6 @@ public class menuClientes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("Ingresar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 230, -1, -1));
-
-        jButton2.setText("Registrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, -1, -1));
-
-        botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline.png"))); // NOI18N
-        botonAerolinea.setBorderPainted(false);
-        botonAerolinea.setContentAreaFilled(false);
-        botonAerolinea.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonAerolineaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonAerolineaMouseExited(evt);
-            }
-        });
-
-        botonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionUsuarios.png"))); // NOI18N
-        botonClientes.setBorderPainted(false);
-        botonClientes.setContentAreaFilled(false);
-        botonClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonClientesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonClientesMouseExited(evt);
-            }
-        });
-
-        jLayeredPane1.setLayer(botonAerolinea, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(botonClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(botonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(botonAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
-
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 340, 240));
 
         panelOpcionesVentana.setOpaque(false);
 
@@ -234,41 +154,6 @@ public class menuClientes extends javax.swing.JFrame {
         minimizarPrograma();
     }//GEN-LAST:event_botonMinimizarMouseClicked
 
-    private void botonClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonClientesMouseEntered
-        // TODO add your handling code here:
-        botonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionUsuarios2.png")));
-    }//GEN-LAST:event_botonClientesMouseEntered
-
-    private void botonClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonClientesMouseExited
-        // TODO add your handling code here:
-        botonClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionUsuarios.png")));
-    }//GEN-LAST:event_botonClientesMouseExited
-
-    private void botonAerolineaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAerolineaMouseExited
-        // TODO add your handling code here:
-        botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline.png")));
-    }//GEN-LAST:event_botonAerolineaMouseExited
-
-    private void botonAerolineaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAerolineaMouseEntered
-        // TODO add your handling code here:
-        botonAerolinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/opcionAirline2.png")));
-    }//GEN-LAST:event_botonAerolineaMouseEntered
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        InterRegistrar pantallaRegistro = new InterRegistrar();
-        this.setVisible(false);
-        pantallaRegistro.setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -286,34 +171,32 @@ public class menuClientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menuClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menuClientes().setVisible(true);
+                new Launcher().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAerolinea;
     private javax.swing.JButton botonCerrar;
-    private javax.swing.JButton botonClientes;
     private javax.swing.JButton botonMinimizar;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel panelOpcionesVentana;
     // End of variables declaration//GEN-END:variables
 }

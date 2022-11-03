@@ -9,12 +9,12 @@ package interfaz.interfazMenuPrincipal;
  *
  * @author Arturo
  */
-public class OpcionesPanelIzquierdo extends javax.swing.JPanel {
+public class MenuIngresoRegistro extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelIzquierdo
+     * Creates new form menuIngreso
      */
-    public OpcionesPanelIzquierdo() {
+    public MenuIngresoRegistro() {
         initComponents();
     }
 
@@ -27,12 +27,12 @@ public class OpcionesPanelIzquierdo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonIngresar = new javax.swing.JButton();
+        botonRegistro = new javax.swing.JButton();
 
-        jButton1.setText("Usuarios");
+        botonIngresar.setText("Ingresar");
 
-        jButton2.setText("Aerolinea");
+        botonRegistro.setText("Registro");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -40,25 +40,25 @@ public class OpcionesPanelIzquierdo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonIngresar)
+                    .addComponent(botonRegistro))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(botonIngresar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(botonRegistro)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonIngresar;
+    private javax.swing.JButton botonRegistro;
     // End of variables declaration//GEN-END:variables
 }

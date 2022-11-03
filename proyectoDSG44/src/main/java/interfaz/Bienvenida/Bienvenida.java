@@ -3,37 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz.launcher;
+package interfaz.Bienvenida;
 
-import interfaz.interfazMenuPrincipal.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Image;
+import interfaz.interfazMenuPrincipal.panelIzquierdo.Launcher;
 import java.awt.geom.RoundRectangle2D;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+
 import javax.swing.JPanel;
 
 /**
  *
  * @author Arturo
  */
-public class Launcher extends javax.swing.JFrame {
+public class Bienvenida extends javax.swing.JFrame {
 
     /**
      * Creates new form menuPrincipal
      */
-    public Launcher() {
+    public Bienvenida() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
 
         JPanel panelIzquierdo = new JPanel();
-        
-        centroBase = panelIzquierdo;
 
     }
 
@@ -50,25 +41,6 @@ public class Launcher extends javax.swing.JFrame {
 
     }
 
-    public JPanel getPanelCentral() {
-
-        return centroBase;
-
-    }
-
-    private JPanel iniciarPanelIzquierdo() {
-        OpcionesPanelIzquierdo panelIzquierdo = new OpcionesPanelIzquierdo();
-        panelIzquierdo.setSize(318, 234);
-        panelIzquierdo.setLocation(0, 0);
-
-        izquierdaBase.removeAll();
-        izquierdaBase.add(panelIzquierdo, BorderLayout.CENTER);
-        izquierdaBase.revalidate();
-        izquierdaBase.repaint();
-
-        return panelIzquierdo;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,10 +50,7 @@ public class Launcher extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLayeredPane2 = new javax.swing.JLayeredPane();
-        centroBase = new javax.swing.JPanel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        izquierdaBase = new javax.swing.JPanel();
+        botonIngreso = new javax.swing.JButton();
         panelOpcionesVentana = new javax.swing.JPanel();
         botonMinimizar = new javax.swing.JButton();
         botonCerrar = new javax.swing.JButton();
@@ -91,79 +60,13 @@ public class Launcher extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        centroBase.setMaximumSize(new java.awt.Dimension(882, 520));
-        centroBase.setMinimumSize(new java.awt.Dimension(882, 520));
-        centroBase.setOpaque(false);
-        centroBase.setPreferredSize(new java.awt.Dimension(882, 520));
-
-        javax.swing.GroupLayout centroBaseLayout = new javax.swing.GroupLayout(centroBase);
-        centroBase.setLayout(centroBaseLayout);
-        centroBaseLayout.setHorizontalGroup(
-            centroBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 882, Short.MAX_VALUE)
-        );
-        centroBaseLayout.setVerticalGroup(
-            centroBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
-
-        jLayeredPane2.setLayer(centroBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
-        jLayeredPane2.setLayout(jLayeredPane2Layout);
-        jLayeredPane2Layout.setHorizontalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(centroBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-        jLayeredPane2Layout.setVerticalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(centroBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 900, 540));
-
-        izquierdaBase.setMaximumSize(new java.awt.Dimension(318, 234));
-        izquierdaBase.setMinimumSize(new java.awt.Dimension(318, 234));
-        izquierdaBase.setOpaque(false);
-        izquierdaBase.setPreferredSize(new java.awt.Dimension(318, 234));
-
-        javax.swing.GroupLayout izquierdaBaseLayout = new javax.swing.GroupLayout(izquierdaBase);
-        izquierdaBase.setLayout(izquierdaBaseLayout);
-        izquierdaBaseLayout.setHorizontalGroup(
-            izquierdaBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 318, Short.MAX_VALUE)
-        );
-        izquierdaBaseLayout.setVerticalGroup(
-            izquierdaBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 234, Short.MAX_VALUE)
-        );
-
-        jLayeredPane1.setLayer(izquierdaBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(izquierdaBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(izquierdaBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 340, 250));
+        botonIngreso.setText("Ingresar");
+        botonIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 440, 150));
 
         panelOpcionesVentana.setOpaque(false);
 
@@ -261,6 +164,20 @@ public class Launcher extends javax.swing.JFrame {
         minimizarPrograma();
     }//GEN-LAST:event_botonMinimizarMouseClicked
 
+    private void botonIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresoActionPerformed
+        // TODO add your handling code here:
+        Launcher lanzador = new Launcher();
+
+        
+
+        lanzador.setVisible(true);
+        this.setVisible(false);
+        System.out.println("hola");
+        this.dispose();
+
+
+    }//GEN-LAST:event_botonIngresoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -278,14 +195,18 @@ public class Launcher extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bienvenida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -294,7 +215,7 @@ public class Launcher extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Launcher().setVisible(true);
+                new Bienvenida().setVisible(true);
             }
         });
 
@@ -302,12 +223,9 @@ public class Launcher extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrar;
+    private javax.swing.JButton botonIngreso;
     private javax.swing.JButton botonMinimizar;
-    private javax.swing.JPanel centroBase;
     private javax.swing.JLabel fondo;
-    private javax.swing.JPanel izquierdaBase;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel panelOpcionesVentana;
     // End of variables declaration//GEN-END:variables
 }

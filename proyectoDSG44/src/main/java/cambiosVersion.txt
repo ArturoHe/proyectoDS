@@ -7,3 +7,6 @@ Ver 1.02.1
 -Se crean las clases
 -Se comienza a cambiar los JFrame por Jpanel
 -En esta version hay mucha basura en la parte de interfaz
+
+Ver 1.02.2
+-Se crean todos los jpanel
