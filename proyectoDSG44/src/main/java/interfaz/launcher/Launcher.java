@@ -1,6 +1,6 @@
 package interfaz.launcher;
 
-import interfaz.MenuIngresoRegistro;
+import interfaz.usuario.MenuIngresoRegistro;
 
 import java.awt.BorderLayout;
 import java.awt.geom.RoundRectangle2D;

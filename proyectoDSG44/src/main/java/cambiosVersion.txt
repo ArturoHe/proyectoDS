@@ -1,12 +1,20 @@
-Ver 1.02
+Ver 1.01
 
 -Se agrega archivo cambiosVersion.txt, para llevar registro en el IDE de los cambios hechos en la version.
 -Se termina la parte visual de Registro Clientes.
 
-Ver 1.02.1
+Ver 1.01.1
 -Se crean las clases
 -Se comienza a cambiar los JFrame por Jpanel
 -En esta version hay mucha basura en la parte de interfaz
 
-Ver 1.02.2
+Ver 1.01.2
 -Se crean todos los jpanel
+
+Ver 1.01.3
+-Se crean más Jpanel para la interfaz
+
+Ver 1.01.4
+-Se crean más Jpanel para la interfaz
+-Se termina la interfaz básica del programa
+-Se implementan los primeros cambios de panel para uso de interfaz

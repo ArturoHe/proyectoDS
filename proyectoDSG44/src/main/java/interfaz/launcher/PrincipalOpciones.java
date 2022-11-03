@@ -5,6 +5,7 @@
  */
 package interfaz.launcher;
 
+import interfaz.aerolinea.ingreso.InterIngresoAerolinea;
 import interfaz.usuario.InterfazInicioUsuario;
 import interfaz.usuario.registroIngreso.InterIngreso;
 import java.awt.BorderLayout;
@@ -48,6 +49,11 @@ public class PrincipalOpciones extends javax.swing.JPanel {
         });
 
         botonAerolinea.setText("Aerolinea");
+        botonAerolinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAerolineaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,14 +83,14 @@ public class PrincipalOpciones extends javax.swing.JPanel {
             .addGroup(baseLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(974, Short.MAX_VALUE))
+                .addContainerGap(680, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -102,6 +108,18 @@ public class PrincipalOpciones extends javax.swing.JPanel {
         this.base.revalidate();
         this.base.repaint();
     }//GEN-LAST:event_botonUsuariosActionPerformed
+
+    private void botonAerolineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAerolineaActionPerformed
+        // TODO add your handling code here:
+        InterIngresoAerolinea ingresoInterEmpleados = new InterIngresoAerolinea();
+        ingresoInterEmpleados.setSize(1300, 570);
+        ingresoInterEmpleados.setLocation(base.getLocation());
+
+        this.base.removeAll();
+        this.base.add(ingresoInterEmpleados, BorderLayout.CENTER);
+        this.base.revalidate();
+        this.base.repaint();
+    }//GEN-LAST:event_botonAerolineaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interfaz.usuario;
 
 import interfaz.usuario.registroIngreso.InterIngreso;
 import java.awt.BorderLayout;
@@ -63,7 +63,7 @@ public class MenuIngresoRegistro extends javax.swing.JPanel {
                 .addComponent(botonIngresar)
                 .addGap(27, 27, 27)
                 .addComponent(botonRegistro)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
