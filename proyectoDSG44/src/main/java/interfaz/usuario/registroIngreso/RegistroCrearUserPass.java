@@ -5,9 +5,11 @@
  */
 package interfaz.usuario.registroIngreso;
 
+import clases.personas.Pasajero;
 import interfaz.launcher.PrincipalOpciones;
 import interfaz.usuario.InterfazInicioUsuario;
 import java.awt.BorderLayout;
+import logica.Datos;
 
 /**
  *
@@ -22,6 +24,86 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
         initComponents();
     }
 
+    private boolean verificarUser() {
+
+        boolean esRegistrado = false;
+
+        for (int i = 0; i < Datos.getListaUsuariosPrincipal().longitud(); i++) {
+
+            String userActual = fieldUsuario.getText();
+            String userBase = Datos.getListaUsuariosPrincipal().obtener(i).getUsuario();
+
+            if (userActual.equals(userBase)) {
+
+                esRegistrado = true;
+
+            }
+
+        }
+
+        return esRegistrado;
+
+    }
+
+    private boolean verificarContraseñas() {
+
+        String contra1 = String.valueOf(fieldPassword.getPassword());
+        String contra2 = String.valueOf(fieldRepetirPassword.getPassword());
+
+        boolean contrasIguales = false;
+
+        if (contra1.equals(contra2)) {
+
+            contrasIguales = true;
+
+        }
+
+        return contrasIguales;
+
+    }
+
+    private boolean verificarEspacios() {
+
+        boolean esCompleto = false;
+
+        if (fieldUsuario.getText().isBlank() == false && String.valueOf(fieldPassword.getPassword()).isBlank() == false
+                && String.valueOf(fieldRepetirPassword.getPassword()).isBlank() == false) {
+
+            esCompleto = true;
+
+        }
+
+        return esCompleto;
+    }
+
+    private void finalizarCrearUser() {
+
+        Pasajero userNew = new Pasajero();
+
+        userNew = Datos.getTemporal();
+
+        userNew.setUsuario(fieldUsuario.getText());
+        userNew.setPassword(String.valueOf(fieldPassword.getPassword()));
+
+        Datos.getListaUsuariosPrincipal().insertarFinLista(userNew);
+
+        Pasajero limpiar = new Pasajero();
+
+        Datos.setTemporal(limpiar);
+
+    }
+
+    private void cambiarPantalla() {
+        InterfazInicioUsuario inicio = new InterfazInicioUsuario();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +113,8 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogoRegistro = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
         base = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
@@ -43,7 +127,28 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
         botonFinalizar = new javax.swing.JButton();
         fieldRepetirPassword = new javax.swing.JPasswordField();
         botonVerRepContra = new javax.swing.JButton();
-        labelErrorInicio = new javax.swing.JLabel();
+        labelError = new javax.swing.JLabel();
+
+        dialogoRegistro.setSize(new java.awt.Dimension(400, 300));
+
+        jLabel1.setText("Registro exitoso");
+
+        javax.swing.GroupLayout dialogoRegistroLayout = new javax.swing.GroupLayout(dialogoRegistro.getContentPane());
+        dialogoRegistro.getContentPane().setLayout(dialogoRegistroLayout);
+        dialogoRegistroLayout.setHorizontalGroup(
+            dialogoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoRegistroLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jLabel1)
+                .addContainerGap(170, Short.MAX_VALUE))
+        );
+        dialogoRegistroLayout.setVerticalGroup(
+            dialogoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoRegistroLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabel1)
+                .addContainerGap(151, Short.MAX_VALUE))
+        );
 
         setMaximumSize(new java.awt.Dimension(1300, 570));
         setMinimumSize(new java.awt.Dimension(1300, 570));
@@ -106,8 +211,8 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
             }
         });
 
-        labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelErrorInicio.setText("dsadsadasdsad");
+        labelError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelError.setText(".");
 
         javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
         base.setLayout(baseLayout);
@@ -136,7 +241,7 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
                         .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(200, 200, 200)
                         .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(469, Short.MAX_VALUE))
         );
@@ -163,9 +268,9 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCancelar)
                     .addComponent(botonFinalizar))
-                .addGap(18, 18, 18)
-                .addComponent(labelErrorInicio)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(labelError)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -200,6 +305,39 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
         // TODO add your handling code here:
+
+        if (verificarEspacios() == true) {
+
+            if (verificarUser() == true) {
+
+                labelError.setText("Usuario ya está en uso");
+
+            }
+
+            if (verificarContraseñas() == false) {
+
+                labelError.setText("Las contraseñas no coinciden");
+
+            }
+
+            if (verificarUser() == false && verificarContraseñas() == true) {
+
+                finalizarCrearUser();
+                cambiarPantalla();
+
+                dialogoRegistro.setSize(400, 300);
+                dialogoRegistro.setResizable(false);
+                dialogoRegistro.setAlwaysOnTop(true);
+                dialogoRegistro.setLocationRelativeTo(null);
+                dialogoRegistro.setVisible(true);
+
+            }
+
+        }else{
+            labelError.setText("Todos los espacios deben ser diligenciados");
+        }
+
+
     }//GEN-LAST:event_botonFinalizarActionPerformed
 
     private void fieldRepetirPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldRepetirPasswordActionPerformed
@@ -225,11 +363,13 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
     private javax.swing.JButton botonFinalizar;
     private javax.swing.JButton botonVerContra;
     private javax.swing.JButton botonVerRepContra;
+    private javax.swing.JDialog dialogoRegistro;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JPasswordField fieldRepetirPassword;
     private javax.swing.JTextField fieldUsuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelContraseña;
-    private javax.swing.JLabel labelErrorInicio;
+    private javax.swing.JLabel labelError;
     private javax.swing.JLabel labelRepetirContra;
     private javax.swing.JLabel labelTitulo;
     private javax.swing.JLabel labelUsuario;

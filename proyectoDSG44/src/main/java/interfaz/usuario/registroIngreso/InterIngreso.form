@@ -47,23 +47,28 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelTitulo" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelUsuario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                          <Component id="fieldUsuario" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelContraseña" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                          <Component id="fieldPassword" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Component id="botonCancelar" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
                           <Component id="botonFinalizar" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                       <Component id="labelErrorInicio" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="labelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelContraseña" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="fieldPassword" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="botonVerContra" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="fieldUsuario" min="-2" pref="220" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="681" max="32767" attributes="0"/>
+                  <EmptySpace pref="656" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -79,10 +84,11 @@
                   </Group>
                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labelContraseña" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelContraseña" min="-2" max="-2" attributes="0"/>
                       <Component id="fieldPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonVerContra" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="botonCancelar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="botonFinalizar" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -119,11 +125,6 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="fieldPassword">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldPasswordActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="botonCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
@@ -143,8 +144,19 @@
         <Component class="javax.swing.JLabel" name="labelErrorInicio">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="dsadsadasdsad"/>
+            <Property name="text" type="java.lang.String" value="."/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="fieldPassword">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldPasswordActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonVerContra">
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botonVerContraMousePressed"/>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botonVerContraMouseReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

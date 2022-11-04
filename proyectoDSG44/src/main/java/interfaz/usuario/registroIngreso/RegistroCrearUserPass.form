@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JDialog" name="dialogoRegistro">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[400, 300]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="170" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="151" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registro exitoso"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1300, 570]"/>
@@ -69,7 +106,7 @@
                           <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
                           <Component id="botonFinalizar" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="labelErrorInicio" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
+                      <Component id="labelError" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
                       <Component id="labelTitulo" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="469" max="32767" attributes="0"/>
@@ -103,9 +140,9 @@
                       <Component id="botonCancelar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="botonFinalizar" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                  <Component id="labelErrorInicio" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="260" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="labelError" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="246" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -175,10 +212,10 @@
             <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botonVerRepContraMouseReleased"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelErrorInicio">
+        <Component class="javax.swing.JLabel" name="labelError">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="dsadsadasdsad"/>
+            <Property name="text" type="java.lang.String" value="."/>
           </Properties>
         </Component>
       </SubComponents>

@@ -7,7 +7,7 @@ package clases.vehiculos;
 public class Vehiculo {
     
     private String matricula;
-    private String operativo;
+    private boolean esOperativo;
     private String descripcionEstado;    
     private String fabricante;
     private String modelo;
@@ -25,7 +25,7 @@ public class Vehiculo {
 
     public Vehiculo(String matricula, String operativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible, int capacidadDeEnergia, boolean esElectrico) {
         this.matricula = matricula;
-        this.operativo = operativo;
+        this.esOperativo = true;
         this.descripcionEstado = descripcionEstado;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -43,8 +43,8 @@ public class Vehiculo {
         return matricula;
     }
 
-    public String getOperativo() {
-        return operativo;
+    public boolean getEsOperativo() {
+        return esOperativo;
     }
 
     public String getDescripcionEstado() {
@@ -90,8 +90,8 @@ public class Vehiculo {
         this.matricula = matricula;
     }
 
-    public void setOperativo(String operativo) {
-        this.operativo = operativo;
+    public void setEsOperativo(boolean esOperativo) {
+        this.esOperativo = esOperativo;
     }
 
     public void setDescripcionEstado(String descripcionEstado) {

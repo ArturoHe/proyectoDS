@@ -5,9 +5,16 @@
  */
 package interfaz.usuario.registroIngreso;
 
+import clases.personas.Contacto;
+import clases.personas.Pasajero;
+import estructuras.Usuarios.ListaEnlazadaResponsables;
 import interfaz.launcher.PrincipalOpciones;
 import interfaz.usuario.InterfazInicioUsuario;
 import java.awt.BorderLayout;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import logica.Datos;
 
 /**
  *
@@ -20,6 +27,93 @@ public class RegistroEmergencia extends javax.swing.JPanel {
      */
     public RegistroEmergencia() {
         initComponents();
+    }
+
+    private void registrarContacto() {
+
+        ListaEnlazadaResponsables listaUser = new ListaEnlazadaResponsables();
+        listaUser = Datos.getTemporal().getResponsables();
+
+        Pasajero pasajeroLocal = new Pasajero();
+        pasajeroLocal = Datos.getTemporal();
+
+        Contacto contactoEmer = new Contacto();
+
+        contactoEmer.setNombre(fieldNombres.getText());
+        contactoEmer.setTipoDeDocumento(listaTiposDoc.getSelectedItem().toString());
+        contactoEmer.setNumeroDeDocumento(fieldNumeroDocumento.getText());
+        
+        contactoEmer.setCorreo(fieldCorreo.getText());
+        contactoEmer.setTelefono(Integer.parseInt(fieldTelefono.getText()));
+
+        contactoEmer.setAñoDeNacimiento(Integer.parseInt(listaAños.getSelectedItem().toString()));
+        contactoEmer.setMesDeNacimiento(Integer.parseInt(listaMeses.getSelectedItem().toString()));
+        contactoEmer.setDiaDenacimiento(Integer.parseInt(listaDias.getSelectedItem().toString()));
+
+        contactoEmer.setPais(listaPaises.getSelectedItem().toString());
+
+        contactoEmer.setCiudad(fieldCiudad.getText());
+        contactoEmer.setDireccion(fieldDireccion.getText());
+        contactoEmer.setCodigoPostal(Integer.parseInt(fieldCodigoPostal.getText()));
+
+        listaUser.insetarInicioLista(contactoEmer);
+
+        contactoEmer.setResponsables(listaUser);
+        Datos.setTemporal(pasajeroLocal);
+
+    }
+
+    private int determinarEdad() {
+
+        String dia = listaDias.getSelectedItem().toString();
+        String mes = listaMeses.getSelectedItem().toString();
+        String año = listaAños.getSelectedItem().toString();
+
+        String fecha = dia + "/" + mes + "/" + año;
+
+        int edad = -1;
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaNac = LocalDate.parse(fecha, fmt);
+        LocalDate ahora = LocalDate.now();
+
+        Period periodo = Period.between(fechaNac, ahora);
+
+        edad = periodo.getYears();
+
+        return edad;
+    }
+
+    private void pasarARegistrarUser() {
+
+        RegistroCrearUserPass interfazRegistroFin = new RegistroCrearUserPass();
+        interfazRegistroFin.setSize(1300, 570);
+        interfazRegistroFin.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(interfazRegistroFin, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+    }
+
+    private boolean verificarEspacios() {
+
+        boolean esCompleto = false;
+
+        if (fieldNombres.getText().isBlank() && listaTiposDoc.getSelectedIndex() == 0 && fieldNumeroDocumento.getText().isBlank()
+                && listaDias.getSelectedIndex() == 0 && listaMeses.getSelectedIndex() == 0 && listaAños.getSelectedIndex() == 0
+                && listaPaises.getSelectedIndex() == 0 && fieldCiudad.getText().isBlank() && fieldDireccion.getText().isBlank()
+                && fieldCodigoPostal.getText().isBlank()) {
+
+            esCompleto = false;
+
+        } else {
+
+            esCompleto = true;
+
+        }
+
+        return esCompleto;
     }
 
     /**
@@ -35,8 +129,6 @@ public class RegistroEmergencia extends javax.swing.JPanel {
         labelTitulo = new javax.swing.JLabel();
         labelTipoDoc1 = new javax.swing.JLabel();
         fieldNombres = new javax.swing.JTextField();
-        fieldApellidos = new javax.swing.JTextField();
-        labelNumeroDoc1 = new javax.swing.JLabel();
         labelTipoDoc = new javax.swing.JLabel();
         listaTiposDoc = new javax.swing.JComboBox<>();
         fieldNumeroDocumento = new javax.swing.JTextField();
@@ -55,6 +147,11 @@ public class RegistroEmergencia extends javax.swing.JPanel {
         fieldCiudad = new javax.swing.JTextField();
         listaPaises = new javax.swing.JComboBox<>();
         labelPais = new javax.swing.JLabel();
+        labelError = new javax.swing.JLabel();
+        labelCorreo = new javax.swing.JLabel();
+        fieldCorreo = new javax.swing.JTextField();
+        labelTelefono = new javax.swing.JLabel();
+        fieldTelefono = new javax.swing.JTextField();
 
         setMaximumSize(new java.awt.Dimension(1300, 570));
         setMinimumSize(new java.awt.Dimension(1300, 570));
@@ -67,13 +164,11 @@ public class RegistroEmergencia extends javax.swing.JPanel {
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Registro - Contacto de emergencia");
 
-        labelTipoDoc1.setText("Nombres");
-
-        labelNumeroDoc1.setText("Apellidos");
+        labelTipoDoc1.setText("Nombre Completo");
 
         labelTipoDoc.setText("Tipo de Documento");
 
-        listaTiposDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de ciudadania", "Pasaporte", "Documento de identificacion Extranjero" }));
+        listaTiposDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula de Ciudadanía", "DNI Extranjero", "Pasaporte", "No. Único de Id. Personal", "Otro" }));
         listaTiposDoc.setBorder(null);
         listaTiposDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +187,7 @@ public class RegistroEmergencia extends javax.swing.JPanel {
 
         labelFechaNacimiento.setText("Fecha de nacimiento");
 
-        listaAños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        listaAños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
         listaAños.setBorder(null);
         listaAños.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +195,7 @@ public class RegistroEmergencia extends javax.swing.JPanel {
             }
         });
 
-        listaMeses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        listaMeses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         listaMeses.setBorder(null);
         listaMeses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +203,7 @@ public class RegistroEmergencia extends javax.swing.JPanel {
             }
         });
 
-        listaDias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        listaDias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         listaDias.setBorder(null);
         listaDias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +237,7 @@ public class RegistroEmergencia extends javax.swing.JPanel {
 
         labelCiudad.setText("Ciudad de Residencia");
 
-        listaPaises.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas", "Marshall", "Islas", "Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva", "Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva", "Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
+        listaPaises.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas", "Marshall", "Islas", "Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva", "Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva", "Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" }));
         listaPaises.setBorder(null);
         listaPaises.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +247,26 @@ public class RegistroEmergencia extends javax.swing.JPanel {
 
         labelPais.setText("Pais de Residencia");
 
+        labelError.setText(".");
+
+        labelCorreo.setText("Correo Electronico");
+
+        fieldCorreo.setBorder(null);
+        fieldCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCorreoActionPerformed(evt);
+            }
+        });
+
+        labelTelefono.setText("Telefono");
+
+        fieldTelefono.setBorder(null);
+        fieldTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldTelefonoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
         base.setLayout(baseLayout);
         baseLayout.setHorizontalGroup(
@@ -159,52 +274,61 @@ public class RegistroEmergencia extends javax.swing.JPanel {
             .addGroup(baseLayout.createSequentialGroup()
                 .addGap(436, 436, 436)
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelTipoDoc1)
-                        .addGap(91, 91, 91)
-                        .addComponent(fieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelNumeroDoc1)
-                        .addGap(91, 91, 91)
-                        .addComponent(fieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelTipoDoc)
-                        .addGap(35, 35, 35)
-                        .addComponent(listaTiposDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelNumeroDoc)
-                        .addGap(14, 14, 14)
-                        .addComponent(fieldNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelFechaNacimiento)
-                        .addGap(30, 30, 30)
-                        .addComponent(listaAños, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(listaMeses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(listaDias, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120)
-                        .addComponent(botonCompletarReg1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelPais)
-                        .addGap(44, 44, 44)
-                        .addComponent(listaPaises, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelCiudad)
-                        .addGap(27, 27, 27)
-                        .addComponent(fieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelDireccion)
-                        .addGap(15, 15, 15)
-                        .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelPostal)
-                        .addGap(66, 66, 66)
-                        .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(labelTelefono)
+                    .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(labelFechaNacimiento)
+                                .addGap(30, 30, 30)
+                                .addComponent(listaAños, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(listaMeses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(listaDias, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(labelPais)
+                                .addGap(44, 44, 44)
+                                .addComponent(listaPaises, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(labelCiudad)
+                                .addGap(27, 27, 27)
+                                .addComponent(fieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(labelDireccion)
+                                .addGap(15, 15, 15)
+                                .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(labelPostal)
+                                .addGap(66, 66, 66)
+                                .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(baseLayout.createSequentialGroup()
+                                    .addComponent(labelTipoDoc1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(baseLayout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(120, 120, 120)
+                                    .addComponent(botonCompletarReg1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(baseLayout.createSequentialGroup()
+                                    .addGap(140, 140, 140)
+                                    .addComponent(labelError))
+                                .addGroup(baseLayout.createSequentialGroup()
+                                    .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelNumeroDoc)
+                                        .addComponent(labelCorreo))
+                                    .addGap(14, 14, 14)
+                                    .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(labelTipoDoc)
+                                .addGap(35, 35, 35)
+                                .addComponent(listaTiposDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(504, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
@@ -212,15 +336,11 @@ public class RegistroEmergencia extends javax.swing.JPanel {
             .addGroup(baseLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(labelTitulo)
-                .addGap(8, 8, 8)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(5, 5, 5)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTipoDoc1)
                     .addComponent(fieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelNumeroDoc1)
-                    .addComponent(fieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(21, 21, 21)
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTipoDoc)
                     .addComponent(listaTiposDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,7 +348,15 @@ public class RegistroEmergencia extends javax.swing.JPanel {
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNumeroDoc)
                     .addComponent(fieldNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCorreo)
+                    .addComponent(fieldCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTelefono)
+                    .addComponent(fieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelFechaNacimiento)
                     .addComponent(listaAños, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,11 +378,13 @@ public class RegistroEmergencia extends javax.swing.JPanel {
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelError)
+                .addGap(67, 67, 67)
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCancelar)
                     .addComponent(botonCompletarReg1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -302,34 +432,54 @@ public class RegistroEmergencia extends javax.swing.JPanel {
 
     private void botonCompletarReg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCompletarReg1ActionPerformed
         // TODO add your handling code here:
-        RegistroCrearUserPass interfazRegistroFin = new RegistroCrearUserPass();
-        interfazRegistroFin.setSize(1300, 570);
-        interfazRegistroFin.setLocation(0, 0);
 
-        base.removeAll();
-        base.add(interfazRegistroFin, BorderLayout.CENTER);
-        base.revalidate();
-        base.repaint();
+        if (verificarEspacios() == true) {
+            int edad = determinarEdad();
+
+            if (edad < 18) {
+
+                labelError.setText("El contacto de Emergencia no puede tener menos de 18 años");
+
+            } else {
+
+                registrarContacto();
+                pasarARegistrarUser();
+            }
+
+        }else{
+            labelError.setText("Todos los espacios deben ser diligenciados");
+        }
     }//GEN-LAST:event_botonCompletarReg1ActionPerformed
+
+    private void fieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCorreoActionPerformed
+
+    private void fieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTelefonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel base;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonCompletarReg1;
-    private javax.swing.JTextField fieldApellidos;
     private javax.swing.JTextField fieldCiudad;
     private javax.swing.JTextField fieldCodigoPostal;
+    private javax.swing.JTextField fieldCorreo;
     private javax.swing.JTextField fieldDireccion;
     private javax.swing.JTextField fieldNombres;
     private javax.swing.JTextField fieldNumeroDocumento;
+    private javax.swing.JTextField fieldTelefono;
     private javax.swing.JLabel labelCiudad;
+    private javax.swing.JLabel labelCorreo;
     private javax.swing.JLabel labelDireccion;
+    private javax.swing.JLabel labelError;
     private javax.swing.JLabel labelFechaNacimiento;
     private javax.swing.JLabel labelNumeroDoc;
-    private javax.swing.JLabel labelNumeroDoc1;
     private javax.swing.JLabel labelPais;
     private javax.swing.JLabel labelPostal;
+    private javax.swing.JLabel labelTelefono;
     private javax.swing.JLabel labelTipoDoc;
     private javax.swing.JLabel labelTipoDoc1;
     private javax.swing.JLabel labelTitulo;

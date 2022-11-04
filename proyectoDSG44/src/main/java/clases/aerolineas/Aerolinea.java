@@ -14,9 +14,9 @@ public class Aerolinea {
     private String nombre;
     private String codigoICAO;
     private String codigoIATA;
+    private String aeropuertoPrincipal;
     private AvionesListaEnlazada aviones;
     private ProveedoresListaEnlazada proveedores;
-    private String aeropuertoPrincipal;
     private ListaEnlazadaStrings aeropuertosOperados;
 
     //Constructor/es

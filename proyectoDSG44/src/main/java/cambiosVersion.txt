@@ -22,3 +22,8 @@ Ver 1.01.4
 Ver 1.01.5
 -Se actualizan dimensiones de Jpanels
 -Se crean las estructuras necesarias para el correcto funcionamiento de las clases
+
+Ver 1.1
+-Interfaz por parte Usuarios totalmente funcional
+-Datos y su pseudo persistencia totalmente funcional para usuarios
+-ListasEnlazadas implementadas en la parte Usuarios

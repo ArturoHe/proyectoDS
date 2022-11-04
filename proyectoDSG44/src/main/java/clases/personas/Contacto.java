@@ -8,7 +8,7 @@ import estructuras.Usuarios.ListaEnlazadaResponsables;
  */
 public class Contacto extends Persona {
 
-    private int telefono;
+    private long telefono;
     private int codigoPostal;
     private String correo;
     private String pais;
@@ -19,8 +19,8 @@ public class Contacto extends Persona {
     public Contacto() {
     }
 
-    public Contacto(int telefono, int codigoPostal, String correo, String pais, String ciudad, String direccion, String usuario, String password, String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento, boolean esMenor, ListaEnlazadaResponsables responsables) {
-        super(usuario, password, nombre, tipoDeDocumento, numeroDeDocumento, añoDeNacimiento, mesDeNacimiento, diaDenacimiento, esMenor, responsables);
+    public Contacto(long telefono, int codigoPostal, String correo, String pais, String ciudad, String direccion, String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento, boolean esMenor) {
+        super(nombre, tipoDeDocumento, numeroDeDocumento, añoDeNacimiento, mesDeNacimiento, diaDenacimiento, esMenor);
         this.telefono = telefono;
         this.codigoPostal = codigoPostal;
         this.correo = correo;
@@ -31,7 +31,7 @@ public class Contacto extends Persona {
     
     //Get
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 

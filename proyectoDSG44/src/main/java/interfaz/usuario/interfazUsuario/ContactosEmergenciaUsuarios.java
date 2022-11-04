@@ -5,6 +5,9 @@
  */
 package interfaz.usuario.interfazUsuario;
 
+import javax.swing.DefaultListModel;
+import logica.Datos;
+
 /**
  *
  * @author Arturo
@@ -16,6 +19,22 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
      */
     public ContactosEmergenciaUsuarios() {
         initComponents();
+        iniciar();
+    }
+
+    private void iniciar() {
+
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+
+        for (int i = 0; i < Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().longitud(); i++) {
+
+            listModel.addElement(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(i).getNombre());
+
+        }
+
+        listaContactos.setModel(listModel);
+
     }
 
     /**
@@ -30,11 +49,9 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
         panelData1 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaContactos = new javax.swing.JList<>();
         labelTipoDoc1 = new javax.swing.JLabel();
         fieldNombres = new javax.swing.JTextField();
-        labelNumeroDoc1 = new javax.swing.JLabel();
-        fieldApellidos = new javax.swing.JTextField();
         labelTipoDoc = new javax.swing.JLabel();
         listaTiposDoc = new javax.swing.JComboBox<>();
         labelNumeroDoc = new javax.swing.JLabel();
@@ -60,20 +77,24 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1010, 558));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        listaContactos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "it1", "it2", "it3" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        listaContactos.setMaximumSize(new java.awt.Dimension(250, 500));
+        listaContactos.setMinimumSize(new java.awt.Dimension(250, 500));
+        listaContactos.setPreferredSize(new java.awt.Dimension(250, 500));
+        listaContactos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaContactosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaContactos);
 
         labelTipoDoc1.setText("Nombres");
 
         fieldNombres.setEnabled(false);
-
-        labelNumeroDoc1.setText("Apellidos");
-
-        fieldApellidos.setEnabled(false);
 
         labelTipoDoc.setText("Tipo de Documento");
 
@@ -159,18 +180,14 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(220, 220, 220)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelTipoDoc1)
                         .addGap(91, 91, 91)
                         .addComponent(fieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelNumeroDoc1)
-                        .addGap(91, 91, 91)
-                        .addComponent(fieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(labelTipoDoc)
                         .addGap(35, 35, 35)
                         .addComponent(listaTiposDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,55 +220,50 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
                             .addComponent(labelPostal)
                             .addGap(66, 66, 66)
                             .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTipoDoc1)
-                            .addComponent(fieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNumeroDoc1)
-                            .addComponent(fieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTipoDoc)
-                            .addComponent(listaTiposDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNumeroDoc)
-                            .addComponent(fieldNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelFechaNacimiento)
-                            .addComponent(listaAños, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listaMeses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listaDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelPais)
-                            .addComponent(listaPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelCiudad)
-                            .addComponent(fieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelDireccion)
-                            .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(labelTipoDoc1)
+                    .addComponent(fieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTipoDoc)
+                    .addComponent(listaTiposDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNumeroDoc)
+                    .addComponent(fieldNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelFechaNacimiento)
+                    .addComponent(listaAños, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaMeses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPais)
+                    .addComponent(listaPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCiudad)
+                    .addComponent(fieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelDireccion)
+                    .addComponent(fieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(194, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelData1Layout = new javax.swing.GroupLayout(panelData1);
@@ -260,13 +272,13 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
             panelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelData1Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelData1Layout.setVerticalGroup(
             panelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelData1Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         add(panelData1, java.awt.BorderLayout.CENTER);
@@ -300,27 +312,46 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldDireccionActionPerformed
 
+    private void listaContactosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaContactosMouseClicked
+        // TODO add your handling code here:
+
+        fieldNombres.setText(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getNombre());
+        listaTiposDoc.getModel().setSelectedItem(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getTipoDeDocumento());
+        fieldNumeroDocumento.setText(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getNumeroDeDocumento());
+
+        listaAños.getModel().setSelectedItem(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getAñoDeNacimiento());
+        listaMeses.getModel().setSelectedItem(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getMesDeNacimiento());
+        listaDias.getModel().setSelectedItem(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getDiaDenacimiento());
+
+        listaPaises.getModel().setSelectedItem(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getPais());
+
+        fieldCiudad.setText(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getCiudad());
+        fieldDireccion.setText(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getDireccion());
+        fieldCodigoPostal.setText(String.valueOf(Datos.getListaUsuariosPrincipal().obtener(Datos.getIndiceUser()).getResponsables().obtener(listaContactos.getSelectedIndex()).getCodigoPostal()));
+
+        System.out.println(listaContactos.getSelectedIndex());
+        System.out.println(listaContactos.getSelectedValue());
+    }//GEN-LAST:event_listaContactosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField fieldApellidos;
     private javax.swing.JTextField fieldCiudad;
     private javax.swing.JTextField fieldCodigoPostal;
     private javax.swing.JTextField fieldDireccion;
     private javax.swing.JTextField fieldNombres;
     private javax.swing.JTextField fieldNumeroDocumento;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCiudad;
     private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelFechaNacimiento;
     private javax.swing.JLabel labelNumeroDoc;
-    private javax.swing.JLabel labelNumeroDoc1;
     private javax.swing.JLabel labelPais;
     private javax.swing.JLabel labelPostal;
     private javax.swing.JLabel labelTipoDoc;
     private javax.swing.JLabel labelTipoDoc1;
     private javax.swing.JComboBox<String> listaAños;
+    private javax.swing.JList<String> listaContactos;
     private javax.swing.JComboBox<String> listaDias;
     private javax.swing.JComboBox<String> listaMeses;
     private javax.swing.JComboBox<String> listaPaises;

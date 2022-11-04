@@ -1,17 +1,18 @@
 package interfaz.launcher;
 
-
-
 import java.awt.BorderLayout;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JPanel;
+import logica.Datos;
 
 /**
  *
  * @author Arturo
  */
 public class Launcher extends javax.swing.JFrame {
+
+    private Datos datosGeneral = new Datos();
 
     /**
      * Creates new form menuPrincipal
@@ -21,6 +22,7 @@ public class Launcher extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
         iniciarPrograma();
+        datosGeneral.iniciarDatosUsuarios();
 
     }
 
@@ -47,6 +49,14 @@ public class Launcher extends javax.swing.JFrame {
         base.revalidate();
         base.repaint();
 
+    }
+
+    public Datos getDatosGeneral() {
+        return datosGeneral;
+    }
+
+    public void setDatosGeneral(Datos datosGeneral) {
+        this.datosGeneral = datosGeneral;
     }
 
     /**
@@ -224,4 +234,5 @@ public class Launcher extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel panelOpcionesVentana;
     // End of variables declaration//GEN-END:variables
+
 }

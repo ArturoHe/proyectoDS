@@ -11,7 +11,7 @@ public class Proveedor {
     private String nombre;
     private String codigoInterno;
     private String servicio;
-    private boolean activo;
+    private boolean estaActivo;
     private ListaEnlazadaStrings diasDeServicio;
     
     
@@ -24,7 +24,7 @@ public class Proveedor {
         this.nombre = nombre;
         this.codigoInterno = codigoInterno;
         this.servicio = servicio;
-        this.activo = activo;
+        this.estaActivo = activo;
         this.diasDeServicio = diasDeServicio;
     }
     
@@ -42,8 +42,8 @@ public class Proveedor {
         return servicio;
     }
 
-    public boolean isActivo() {
-        return activo;
+    public boolean isEstaActivo() {
+        return estaActivo;
     }
 
     public ListaEnlazadaStrings getDiasDeServicio() {
@@ -64,8 +64,8 @@ public class Proveedor {
         this.servicio = servicio;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setEstaActivo(boolean estaActivo) {
+        this.estaActivo = estaActivo;
     }
 
     public void setDiasDeServicio(ListaEnlazadaStrings diasDeServicio) {

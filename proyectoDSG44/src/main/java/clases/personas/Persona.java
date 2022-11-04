@@ -36,6 +36,18 @@ public class Persona {
         this.esMenor = esMenor;
         this.responsables = responsables;
     }
+
+    public Persona(String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento, boolean esMenor) {
+        this.nombre = nombre;
+        this.tipoDeDocumento = tipoDeDocumento;
+        this.numeroDeDocumento = numeroDeDocumento;
+        this.añoDeNacimiento = añoDeNacimiento;
+        this.mesDeNacimiento = mesDeNacimiento;
+        this.diaDenacimiento = diaDenacimiento;
+        this.esMenor = esMenor;
+    }
+    
+    
     
     //Get
 

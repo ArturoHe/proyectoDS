@@ -6,30 +6,30 @@ import estructuras.Usuarios.ListaEnlazadaResponsables;
  *
  * @author Arturo
  */
-public class Pasajero extends Persona{
+public class Pasajero extends Persona {
 
     private String estado;
     private String ruta;
     private String codigoCheckIn;
     private String vuelo;
-    private int numeroPasajero;
+
     private boolean registrado;
     private boolean datosCompletos;
-    
-    //constructores
 
+    //constructores
     public Pasajero() {
     }
 
-    public Pasajero(int numeroPasajero, boolean registrado, boolean datosCompletos, String usuario, String password, String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento, boolean esMenor, ListaEnlazadaResponsables responsables) {
+    public Pasajero(boolean registrado, boolean datosCompletos, String usuario, String password,
+            String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento,
+             int mesDeNacimiento, int diaDenacimiento, boolean esMenor, ListaEnlazadaResponsables responsables) {
         super(usuario, password, nombre, tipoDeDocumento, numeroDeDocumento, añoDeNacimiento, mesDeNacimiento, diaDenacimiento, esMenor, responsables);
-        this.numeroPasajero = numeroPasajero;
+
         this.registrado = registrado;
         this.datosCompletos = datosCompletos;
     }
-    
-    //get
 
+    //get
     public String getEstado() {
         return estado;
     }
@@ -46,10 +46,6 @@ public class Pasajero extends Persona{
         return vuelo;
     }
 
-    public int getNumeroPasajero() {
-        return numeroPasajero;
-    }
-
     public boolean isRegistrado() {
         return registrado;
     }
@@ -57,9 +53,8 @@ public class Pasajero extends Persona{
     public boolean isDatosCompletos() {
         return datosCompletos;
     }
-    
-    //Set
 
+    //Set
     public void setEstado(String estado) {
         this.estado = estado;
     }
@@ -76,10 +71,6 @@ public class Pasajero extends Persona{
         this.vuelo = vuelo;
     }
 
-    public void setNumeroPasajero(int numeroPasajero) {
-        this.numeroPasajero = numeroPasajero;
-    }
-
     public void setRegistrado(boolean registrado) {
         this.registrado = registrado;
     }
@@ -87,9 +78,5 @@ public class Pasajero extends Persona{
     public void setDatosCompletos(boolean datosCompletos) {
         this.datosCompletos = datosCompletos;
     }
-    
-    
-    
-    
-    
+
 }

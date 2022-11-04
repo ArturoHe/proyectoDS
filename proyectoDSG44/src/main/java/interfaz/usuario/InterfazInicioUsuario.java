@@ -153,7 +153,7 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
 
     private void botonIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresoActionPerformed
         // TODO add your handling code here:
-        
+
         InterIngreso interfazIngreso = new InterIngreso();
         interfazIngreso.setSize(1300, 570);
         interfazIngreso.setLocation(0, 0);
@@ -162,7 +162,7 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
         base.add(interfazIngreso, BorderLayout.CENTER);
         base.revalidate();
         base.repaint();
-        
+
     }//GEN-LAST:event_botonIngresoActionPerformed
 
     private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
@@ -187,7 +187,7 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
         base.add(inicio, BorderLayout.CENTER);
         base.revalidate();
         base.repaint();
-        
+
     }//GEN-LAST:event_botonCerrarActionPerformed
 
 

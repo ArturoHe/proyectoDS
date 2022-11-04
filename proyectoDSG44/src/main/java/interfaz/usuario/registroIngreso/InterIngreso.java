@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaz.usuario.registroIngreso;
 
-import interfaz.launcher.PrincipalOpciones;
+import estructuras.general.ListaEnlazadaPasajeros;
 import interfaz.usuario.InterfazInicioUsuario;
 import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
 import java.awt.BorderLayout;
+import logica.Datos;
 
 /**
  *
@@ -20,7 +16,69 @@ public class InterIngreso extends javax.swing.JPanel {
      * Creates new form Ingreso
      */
     public InterIngreso() {
+
         initComponents();
+
+    }
+
+    //mis metodos
+    private boolean verificacionUsuario() {
+
+        ListaEnlazadaPasajeros lista = new ListaEnlazadaPasajeros();
+
+        lista = Datos.getListaUsuariosPrincipal();
+
+        boolean esIngresoAprobado = false;
+
+        for (int i = 0; i < lista.longitud(); i++) {
+
+            String usuarioActual = lista.obtener(i).getUsuario();
+            String contraActual = lista.obtener(i).getPassword();
+
+            if (usuarioActual.equals(fieldUsuario.getText()) && (String.valueOf(contraActual)).equals(String.valueOf(fieldPassword.getPassword()))) {
+
+                Datos.setIndiceUser(i);
+                esIngresoAprobado = true;
+
+                break;
+
+            } else {
+
+                esIngresoAprobado = false;
+
+            }
+
+        }
+
+        return esIngresoAprobado;
+    }
+
+    private void ingresar() {
+
+        BaseInterfazUsuario InterfazUsuario = new BaseInterfazUsuario();
+        InterfazUsuario.setSize(1300, 570);
+        InterfazUsuario.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(InterfazUsuario, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+
+    }
+
+    private boolean verificarEspacios() {
+
+        boolean espaciosLlenos;
+
+        if (fieldUsuario.getText().isEmpty()
+                || String.valueOf(fieldPassword.getPassword()).isEmpty()) {
+
+            espaciosLlenos = false;
+        } else {
+            espaciosLlenos = true;
+        }
+
+        return espaciosLlenos;
     }
 
     /**
@@ -37,10 +95,11 @@ public class InterIngreso extends javax.swing.JPanel {
         fieldUsuario = new javax.swing.JTextField();
         labelUsuario = new javax.swing.JLabel();
         labelContraseña = new javax.swing.JLabel();
-        fieldPassword = new javax.swing.JPasswordField();
         botonCancelar = new javax.swing.JButton();
         botonFinalizar = new javax.swing.JButton();
         labelErrorInicio = new javax.swing.JLabel();
+        fieldPassword = new javax.swing.JPasswordField();
+        botonVerContra = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
@@ -58,12 +117,6 @@ public class InterIngreso extends javax.swing.JPanel {
 
         labelContraseña.setText("Contraseña");
 
-        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldPasswordActionPerformed(evt);
-            }
-        });
-
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +132,22 @@ public class InterIngreso extends javax.swing.JPanel {
         });
 
         labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelErrorInicio.setText("dsadsadasdsad");
+        labelErrorInicio.setText(".");
+
+        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPasswordActionPerformed(evt);
+            }
+        });
+
+        botonVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botonVerContraMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botonVerContraMouseReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
         base.setLayout(baseLayout);
@@ -90,19 +158,22 @@ public class InterIngreso extends javax.swing.JPanel {
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelUsuario)
-                        .addGap(100, 100, 100)
-                        .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelContraseña)
-                        .addGap(80, 80, 80)
-                        .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
                         .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(200, 200, 200)
                         .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(681, Short.MAX_VALUE))
+                    .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(baseLayout.createSequentialGroup()
+                        .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelUsuario)
+                            .addComponent(labelContraseña))
+                        .addGap(80, 80, 80)
+                        .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(baseLayout.createSequentialGroup()
+                                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(656, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +187,8 @@ public class InterIngreso extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelContraseña)
-                    .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCancelar)
@@ -128,10 +200,6 @@ public class InterIngreso extends javax.swing.JPanel {
 
         add(base, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldPasswordActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
@@ -147,21 +215,49 @@ public class InterIngreso extends javax.swing.JPanel {
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
         // TODO add your handling code here:
-        BaseInterfazUsuario InterfazUsuario = new BaseInterfazUsuario();
-        InterfazUsuario.setSize(1300, 570);
-        InterfazUsuario.setLocation(0, 0);
 
-        base.removeAll();
-        base.add(InterfazUsuario, BorderLayout.CENTER);
-        base.revalidate();
-        base.repaint();
+        boolean esIngreso = verificacionUsuario();
+        boolean esCompleto = verificarEspacios();
+
+        if (esCompleto == false) {
+
+            labelErrorInicio.setText("Todos los espacios deben estar diligenciados");
+
+        } else {
+
+            if (esIngreso == true) {
+                ingresar();
+            } else {
+
+                labelErrorInicio.setText("Usuario y/o contraseña incorrectos");
+
+            }
+        }
+
+
     }//GEN-LAST:event_botonFinalizarActionPerformed
+
+    private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldPasswordActionPerformed
+
+    private void botonVerContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerContraMousePressed
+        // TODO add your handling code here:
+
+        fieldPassword.setEchoChar((char) 0);
+    }//GEN-LAST:event_botonVerContraMousePressed
+
+    private void botonVerContraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVerContraMouseReleased
+        // TODO add your handling code here:
+        fieldPassword.setEchoChar('*');
+    }//GEN-LAST:event_botonVerContraMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel base;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonFinalizar;
+    private javax.swing.JButton botonVerContra;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUsuario;
     private javax.swing.JLabel labelContraseña;
