@@ -1,5 +1,9 @@
 package clases.aerolineas;
 
+import estructuras.aerolinea.ProveedoresListaEnlazada;
+import estructuras.aerolinea.AvionesListaEnlazada;
+import estructuras.general.ListaEnlazadaStrings;
+
 /**
  *
  * @author Arturo
@@ -30,7 +34,6 @@ public class Aerolinea {
     }
 
     //Get
-
     public String getNombre() {
         return nombre;
     }
@@ -58,9 +61,8 @@ public class Aerolinea {
     public ListaEnlazadaStrings getAeropuertosOperados() {
         return aeropuertosOperados;
     }
-    
-    //Set
 
+    //Set
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -88,7 +90,5 @@ public class Aerolinea {
     public void setAeropuertosOperados(ListaEnlazadaStrings aeropuertosOperados) {
         this.aeropuertosOperados = aeropuertosOperados;
     }
-    
-    
-    
+
 }

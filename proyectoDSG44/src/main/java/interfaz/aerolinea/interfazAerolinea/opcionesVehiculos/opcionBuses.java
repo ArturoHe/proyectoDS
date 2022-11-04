@@ -29,6 +29,7 @@ public class opcionBuses extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1004, 474));
         setLayout(new java.awt.BorderLayout());
 
         jPanel2.setMinimumSize(new java.awt.Dimension(1004, 474));

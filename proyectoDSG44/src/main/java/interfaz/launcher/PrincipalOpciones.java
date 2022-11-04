@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaz.launcher;
 
 import interfaz.aerolinea.ingreso.InterIngresoAerolinea;
@@ -37,6 +32,9 @@ public class PrincipalOpciones extends javax.swing.JPanel {
         botonUsuarios = new javax.swing.JButton();
         botonAerolinea = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(1300, 570));
+        setMinimumSize(new java.awt.Dimension(1300, 570));
+        setPreferredSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(153, 255, 153));
@@ -81,16 +79,16 @@ public class PrincipalOpciones extends javax.swing.JPanel {
         baseLayout.setHorizontalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(680, Short.MAX_VALUE))
+                .addContainerGap(1007, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -98,7 +96,7 @@ public class PrincipalOpciones extends javax.swing.JPanel {
 
     private void botonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUsuariosActionPerformed
         // TODO add your handling code here:
-        
+
         InterfazInicioUsuario ingresoInterUsuarios = new InterfazInicioUsuario();
         ingresoInterUsuarios.setSize(1300, 570);
         ingresoInterUsuarios.setLocation(base.getLocation());

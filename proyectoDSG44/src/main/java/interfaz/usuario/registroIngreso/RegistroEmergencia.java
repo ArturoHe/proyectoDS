@@ -5,6 +5,8 @@
  */
 package interfaz.usuario.registroIngreso;
 
+import interfaz.launcher.PrincipalOpciones;
+import interfaz.usuario.InterfazInicioUsuario;
 import java.awt.BorderLayout;
 
 /**
@@ -54,6 +56,8 @@ public class RegistroEmergencia extends javax.swing.JPanel {
         listaPaises = new javax.swing.JComboBox<>();
         labelPais = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1300, 570));
+        setMinimumSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
@@ -201,7 +205,7 @@ public class RegistroEmergencia extends javax.swing.JPanel {
                         .addComponent(labelPostal)
                         .addGap(66, 66, 66)
                         .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addContainerGap(504, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +254,7 @@ public class RegistroEmergencia extends javax.swing.JPanel {
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonCancelar)
                     .addComponent(botonCompletarReg1))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -278,6 +282,14 @@ public class RegistroEmergencia extends javax.swing.JPanel {
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
+        InterfazInicioUsuario inicio = new InterfazInicioUsuario();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void fieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDireccionActionPerformed

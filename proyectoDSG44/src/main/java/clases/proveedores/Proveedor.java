@@ -1,5 +1,7 @@
 package clases.proveedores;
 
+import estructuras.general.ListaEnlazadaStrings;
+
 /**
  *
  * @author Arturo

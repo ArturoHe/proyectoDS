@@ -6,6 +6,7 @@
 package interfaz.aerolinea.ingreso;
 
 import interfaz.aerolinea.interfazAerolinea.base.BaseInterfazEmpleados;
+import interfaz.launcher.PrincipalOpciones;
 import interfaz.usuario.registroIngreso.*;
 import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
 import java.awt.BorderLayout;
@@ -42,6 +43,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
         botonFinalizar = new javax.swing.JButton();
         labelErrorInicio = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
@@ -100,7 +102,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
                         .addGap(200, 200, 200)
                         .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(681, Short.MAX_VALUE))
+                .addContainerGap(686, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +123,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
                     .addComponent(botonFinalizar))
                 .addGap(18, 18, 18)
                 .addComponent(labelErrorInicio)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -133,6 +135,14 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
+        PrincipalOpciones inicio = new PrincipalOpciones();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed

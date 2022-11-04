@@ -1,5 +1,7 @@
 package clases.personas;
 
+import estructuras.Usuarios.ListaEnlazadaResponsables;
+
 /**
  *
  * @author Arturo

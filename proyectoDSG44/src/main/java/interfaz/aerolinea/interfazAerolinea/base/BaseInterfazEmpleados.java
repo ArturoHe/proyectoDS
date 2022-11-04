@@ -8,6 +8,7 @@ package interfaz.aerolinea.interfazAerolinea.base;
 import interfaz.aerolinea.interfazAerolinea.opciones.InterProveedores;
 import interfaz.aerolinea.interfazAerolinea.opciones.MiInfoEmpleados;
 import interfaz.aerolinea.interfazAerolinea.opciones.PanelBaseVehiculos;
+import interfaz.launcher.PrincipalOpciones;
 import interfaz.usuario.interfazUsuario.*;
 import java.awt.BorderLayout;
 
@@ -45,9 +46,11 @@ public class BaseInterfazEmpleados extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
+        base.setMaximumSize(new java.awt.Dimension(1300, 570));
         base.setMinimumSize(new java.awt.Dimension(1300, 570));
         base.setPreferredSize(new java.awt.Dimension(1300, 570));
 
+        panelData.setMaximumSize(new java.awt.Dimension(1010, 558));
         panelData.setMinimumSize(new java.awt.Dimension(1010, 558));
         panelData.setPreferredSize(new java.awt.Dimension(1010, 558));
         panelData.setLayout(new java.awt.BorderLayout());
@@ -101,12 +104,17 @@ public class BaseInterfazEmpleados extends javax.swing.JPanel {
                 .addComponent(botonProveedores)
                 .addGap(18, 18, 18)
                 .addComponent(botonVuelo)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         panelDesconectar.setPreferredSize(new java.awt.Dimension(260, 100));
 
         jButton4.setText("Desconectarse");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelDesconectarLayout = new javax.swing.GroupLayout(panelDesconectar);
         panelDesconectar.setLayout(panelDesconectarLayout);
@@ -120,7 +128,7 @@ public class BaseInterfazEmpleados extends javax.swing.JPanel {
         panelDesconectarLayout.setVerticalGroup(
             panelDesconectarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesconectarLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(36, 36, 36))
         );
@@ -191,6 +199,18 @@ public class BaseInterfazEmpleados extends javax.swing.JPanel {
         panelData.revalidate();
         panelData.repaint();
     }//GEN-LAST:event_botonVueloActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        PrincipalOpciones inicio = new PrincipalOpciones();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

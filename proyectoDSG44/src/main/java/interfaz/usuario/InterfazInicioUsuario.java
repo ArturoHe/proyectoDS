@@ -5,6 +5,7 @@
  */
 package interfaz.usuario;
 
+import interfaz.launcher.PrincipalOpciones;
 import interfaz.usuario.registroIngreso.InterIngreso;
 import interfaz.usuario.registroIngreso.RegistroClientes;
 import java.awt.BorderLayout;
@@ -38,15 +39,21 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         botonIngreso = new javax.swing.JButton();
         botonRegistro = new javax.swing.JButton();
+        botonCerrar = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(1300, 570));
         setPreferredSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(153, 255, 153));
+        base.setMinimumSize(new java.awt.Dimension(1300, 570));
+        base.setPreferredSize(new java.awt.Dimension(1300, 570));
 
         botonUsuarios.setText("Usuarios");
+        botonUsuarios.setEnabled(false);
 
         botonAerolinea.setText("Aerolinea");
+        botonAerolinea.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,21 +92,35 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
             }
         });
 
+        botonCerrar.setText("X");
+        botonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(129, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(114, 114, 114))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(botonCerrar)
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
+                .addComponent(botonCerrar)
+                .addGap(4, 4, 4)
                 .addComponent(botonIngreso)
                 .addGap(64, 64, 64)
                 .addComponent(botonRegistro)
@@ -111,23 +132,20 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
         baseLayout.setHorizontalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(594, Short.MAX_VALUE))
+                .addContainerGap(662, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(196, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -159,10 +177,24 @@ public class InterfazInicioUsuario extends javax.swing.JPanel {
         base.repaint();
     }//GEN-LAST:event_botonRegistroActionPerformed
 
+    private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
+        // TODO add your handling code here:
+        PrincipalOpciones inicio = new PrincipalOpciones();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+        
+    }//GEN-LAST:event_botonCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel base;
     private javax.swing.JButton botonAerolinea;
+    private javax.swing.JButton botonCerrar;
     private javax.swing.JButton botonIngreso;
     private javax.swing.JButton botonRegistro;
     private javax.swing.JButton botonUsuarios;

@@ -52,6 +52,8 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
         labelPostal = new javax.swing.JLabel();
         fieldCodigoPostal = new javax.swing.JTextField();
 
+        setMaximumSize(new java.awt.Dimension(1010, 558));
+        setMinimumSize(new java.awt.Dimension(1010, 558));
         setLayout(new java.awt.BorderLayout());
 
         panelData1.setPreferredSize(new java.awt.Dimension(1010, 558));
@@ -201,7 +203,7 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
                             .addComponent(labelPostal)
                             .addGap(66, 66, 66)
                             .addComponent(fieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

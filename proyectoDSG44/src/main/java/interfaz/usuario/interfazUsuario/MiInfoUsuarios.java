@@ -40,6 +40,8 @@ public class MiInfoUsuarios extends javax.swing.JPanel {
         listaMeses = new javax.swing.JComboBox<>();
         listaDias = new javax.swing.JComboBox<>();
 
+        setMaximumSize(new java.awt.Dimension(1010, 558));
+        setMinimumSize(new java.awt.Dimension(1010, 558));
         setPreferredSize(new java.awt.Dimension(1010, 558));
         setLayout(new java.awt.BorderLayout());
 
@@ -135,7 +137,7 @@ public class MiInfoUsuarios extends javax.swing.JPanel {
                         .addComponent(listaMeses, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(listaDias, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelData1Layout.setVerticalGroup(
             panelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +164,7 @@ public class MiInfoUsuarios extends javax.swing.JPanel {
                     .addComponent(listaAños, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(listaMeses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(listaDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(panelData1, java.awt.BorderLayout.CENTER);

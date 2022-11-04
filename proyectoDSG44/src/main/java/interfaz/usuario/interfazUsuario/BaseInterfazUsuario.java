@@ -5,6 +5,7 @@
  */
 package interfaz.usuario.interfazUsuario;
 
+import interfaz.launcher.PrincipalOpciones;
 import java.awt.BorderLayout;
 
 /**
@@ -38,11 +39,16 @@ public class BaseInterfazUsuario extends javax.swing.JPanel {
         panelDesconectar = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(1300, 570));
+        setMinimumSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
         base.setPreferredSize(new java.awt.Dimension(1300, 570));
 
+        panelData.setMaximumSize(new java.awt.Dimension(1010, 558));
+        panelData.setMinimumSize(new java.awt.Dimension(1010, 558));
+        panelData.setPreferredSize(new java.awt.Dimension(1010, 558));
         panelData.setLayout(new java.awt.BorderLayout());
 
         panelOpciones.setPreferredSize(new java.awt.Dimension(260, 160));
@@ -100,6 +106,11 @@ public class BaseInterfazUsuario extends javax.swing.JPanel {
         panelDesconectar.setPreferredSize(new java.awt.Dimension(260, 100));
 
         jButton4.setText("Desconectarse");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelDesconectarLayout = new javax.swing.GroupLayout(panelDesconectar);
         panelDesconectar.setLayout(panelDesconectarLayout);
@@ -128,7 +139,7 @@ public class BaseInterfazUsuario extends javax.swing.JPanel {
                     .addComponent(panelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelDesconectar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
+                .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         baseLayout.setVerticalGroup(
@@ -184,6 +195,18 @@ public class BaseInterfazUsuario extends javax.swing.JPanel {
         panelData.revalidate();
         panelData.repaint();
     }//GEN-LAST:event_botonVueloActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        PrincipalOpciones inicio = new PrincipalOpciones();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

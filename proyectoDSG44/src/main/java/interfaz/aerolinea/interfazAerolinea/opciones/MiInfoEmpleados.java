@@ -44,6 +44,7 @@ public class MiInfoEmpleados extends javax.swing.JPanel {
         labelNumeroDoc2 = new javax.swing.JLabel();
         fieldNumeroDocumento2 = new javax.swing.JTextField();
 
+        setMaximumSize(new java.awt.Dimension(1010, 558));
         setPreferredSize(new java.awt.Dimension(1010, 558));
         setLayout(new java.awt.BorderLayout());
 

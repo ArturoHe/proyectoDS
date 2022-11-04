@@ -18,3 +18,7 @@ Ver 1.01.4
 -Se crean más Jpanel para la interfaz
 -Se termina la interfaz básica del programa
 -Se implementan los primeros cambios de panel para uso de interfaz
+
+Ver 1.01.5
+-Se actualizan dimensiones de Jpanels
+-Se crean las estructuras necesarias para el correcto funcionamiento de las clases

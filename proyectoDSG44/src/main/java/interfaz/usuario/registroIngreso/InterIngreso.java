@@ -5,6 +5,8 @@
  */
 package interfaz.usuario.registroIngreso;
 
+import interfaz.launcher.PrincipalOpciones;
+import interfaz.usuario.InterfazInicioUsuario;
 import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
 import java.awt.BorderLayout;
 
@@ -40,6 +42,7 @@ public class InterIngreso extends javax.swing.JPanel {
         botonFinalizar = new javax.swing.JButton();
         labelErrorInicio = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1300, 570));
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
@@ -132,6 +135,14 @@ public class InterIngreso extends javax.swing.JPanel {
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
+        InterfazInicioUsuario inicio = new InterfazInicioUsuario();
+        inicio.setSize(1300, 570);
+        inicio.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(inicio, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
