@@ -23,6 +23,7 @@ public class Launcher extends javax.swing.JFrame {
         this.setShape(new RoundRectangle2D.Double(0, 0, 1300, 1600, 50, 50));
         iniciarPrograma();
         datosGeneral.iniciarDatosUsuarios();
+        datosGeneral.iniciarDatosAerolinea();
 
     }
 

@@ -8,31 +8,27 @@ package clases.vehiculos;
  *
  * @author Arturo
  */
-public class Automovil extends Vehiculo{
-    
-    private String departamentoAsignado;
-    
-    //constructor
+public class Automovil extends Vehiculo {
 
+    private String departamentoAsignado;
+
+    //constructor
     public Automovil() {
     }
 
-    public Automovil(String departamentoAsignado, String matricula, String operativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible, int capacidadDeEnergia, boolean esElectrico) {
-        super(matricula, operativo, descripcionEstado, fabricante, modelo, aeropuertoActual, capacidadDePasajeros, capacidadDeCarga, capacidadDeCombustible, capacidadDeEnergia, esElectrico);
+    public Automovil(String departamentoAsignado, String matricula, boolean esOperativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible, int capacidadDeEnergia, boolean esElectrico) {
+        super(matricula, esOperativo, descripcionEstado, fabricante, modelo, aeropuertoActual, capacidadDePasajeros, capacidadDeCarga, capacidadDeCombustible, capacidadDeEnergia, esElectrico);
         this.departamentoAsignado = departamentoAsignado;
     }
-    
-    //Get
 
+    //Get
     public String getDepartamentoAsignado() {
         return departamentoAsignado;
     }
-    
-    //Set
 
+    //Set
     public void setDepartamentoAsignado(String departamentoAsignado) {
         this.departamentoAsignado = departamentoAsignado;
     }
-    
-    
+
 }

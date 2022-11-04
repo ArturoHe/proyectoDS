@@ -9,6 +9,7 @@ public class Avion extends Vehiculo {
     private String paisDeRegistro;
     private String tipoDeCombustible;
     private String codigoDeVuelo;
+    private int cantidadDeMotores;
     private int tiempoDeVuelo;
     private int tiempoDesdeRevision;
 
@@ -16,14 +17,19 @@ public class Avion extends Vehiculo {
     public Avion() {
     }
 
-    public Avion(String paisDeRegistro, String tipoDeCombustible, String codigoDeVuelo, int tiempoDeVuelo, int tiempoDesdeRevision, String matricula, String operativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible, int capacidadDeEnergia, boolean esElectrico) {
-        super(matricula, operativo, descripcionEstado, fabricante, modelo, aeropuertoActual, capacidadDePasajeros, capacidadDeCarga, capacidadDeCombustible, capacidadDeEnergia, esElectrico);
+    public Avion(String paisDeRegistro, String tipoDeCombustible, String codigoDeVuelo, int cantidadDeMotores, int tiempoDeVuelo, int tiempoDesdeRevision, String matricula, boolean esOperativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible) {
+        super(matricula, esOperativo, descripcionEstado, fabricante, modelo, aeropuertoActual, capacidadDePasajeros, capacidadDeCarga, capacidadDeCombustible);
         this.paisDeRegistro = paisDeRegistro;
         this.tipoDeCombustible = tipoDeCombustible;
         this.codigoDeVuelo = codigoDeVuelo;
+        this.cantidadDeMotores = cantidadDeMotores;
         this.tiempoDeVuelo = tiempoDeVuelo;
         this.tiempoDesdeRevision = tiempoDesdeRevision;
     }
+
+    
+
+    
 
     //Get
     public String getPaisDeRegistro() {

@@ -46,6 +46,19 @@ public class Persona {
         this.diaDenacimiento = diaDenacimiento;
         this.esMenor = esMenor;
     }
+
+    public Persona(String usuario, String password, String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento) {
+        this.usuario = usuario;
+        this.password = password;
+        this.nombre = nombre;
+        this.tipoDeDocumento = tipoDeDocumento;
+        this.numeroDeDocumento = numeroDeDocumento;
+        this.añoDeNacimiento = añoDeNacimiento;
+        this.mesDeNacimiento = mesDeNacimiento;
+        this.diaDenacimiento = diaDenacimiento;
+    }
+    
+    
     
     
     

@@ -1,6 +1,8 @@
 package interfaz.aerolinea.interfazAerolinea.opciones;
 
 import interfaz.usuario.interfazUsuario.*;
+import javax.swing.DefaultListModel;
+import logica.Datos;
 
 /**
  *
@@ -13,6 +15,22 @@ public class InterProveedores extends javax.swing.JPanel {
      */
     public InterProveedores() {
         initComponents();
+        iniciar();
+    }
+
+    private void iniciar() {
+
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+
+        for (int i = 0; i < Datos.getListaProveedoresPrincipal().longitud(); i++) {
+
+            listModel.addElement(Datos.getListaProveedoresPrincipal().obtener(i).getNombre());
+
+        }
+
+        listaProveedores.setModel(listModel);
+
     }
 
     /**
@@ -25,7 +43,18 @@ public class InterProveedores extends javax.swing.JPanel {
     private void initComponents() {
 
         labelNumeroDeEmpleado = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaProveedores = new javax.swing.JList<>();
+        labelNombre = new javax.swing.JLabel();
+        labelCodigo = new javax.swing.JLabel();
+        labelServicio = new javax.swing.JLabel();
+        labelActivo = new javax.swing.JLabel();
+        labelDia = new javax.swing.JLabel();
+        fieldNombre = new javax.swing.JTextField();
+        fieldCodigo = new javax.swing.JTextField();
+        fieldServicio = new javax.swing.JTextField();
+        fieldActivo = new javax.swing.JTextField();
+        fieldDia = new javax.swing.JTextField();
 
         setMaximumSize(new java.awt.Dimension(1010, 558));
         setPreferredSize(new java.awt.Dimension(1010, 558));
@@ -35,32 +64,129 @@ public class InterProveedores extends javax.swing.JPanel {
         labelNumeroDeEmpleado.setMinimumSize(new java.awt.Dimension(1010, 558));
         labelNumeroDeEmpleado.setPreferredSize(new java.awt.Dimension(1010, 558));
 
-        jLabel1.setText("Esto es proveedores");
+        listaProveedores.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "it1", "it2", "it3" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listaProveedores.setMaximumSize(new java.awt.Dimension(250, 500));
+        listaProveedores.setMinimumSize(new java.awt.Dimension(250, 500));
+        listaProveedores.setPreferredSize(new java.awt.Dimension(250, 500));
+        listaProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaProveedoresMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaProveedores);
+
+        labelNombre.setText("Nombre:");
+
+        labelCodigo.setText("Codigo");
+
+        labelServicio.setText("Servicio");
+
+        labelActivo.setText("Activo");
+
+        labelDia.setText("Dia de entregas");
+
+        fieldNombre.setEnabled(false);
+
+        fieldCodigo.setEnabled(false);
+
+        fieldServicio.setEnabled(false);
+
+        fieldActivo.setEnabled(false);
+
+        fieldDia.setEnabled(false);
 
         javax.swing.GroupLayout labelNumeroDeEmpleadoLayout = new javax.swing.GroupLayout(labelNumeroDeEmpleado);
         labelNumeroDeEmpleado.setLayout(labelNumeroDeEmpleadoLayout);
         labelNumeroDeEmpleadoLayout.setHorizontalGroup(
             labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(labelNumeroDeEmpleadoLayout.createSequentialGroup()
-                .addGap(332, 332, 332)
-                .addComponent(jLabel1)
-                .addContainerGap(574, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelNumeroDeEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(212, 212, 212)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelDia)
+                    .addComponent(labelActivo)
+                    .addComponent(labelServicio)
+                    .addComponent(labelCodigo)
+                    .addComponent(labelNombre))
+                .addGap(18, 18, 18)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fieldDia, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(fieldActivo)
+                    .addComponent(fieldServicio)
+                    .addComponent(fieldCodigo)
+                    .addComponent(fieldNombre))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         labelNumeroDeEmpleadoLayout.setVerticalGroup(
             labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labelNumeroDeEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(labelNumeroDeEmpleadoLayout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jLabel1)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addGap(116, 116, 116)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombre)
+                    .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCodigo)
+                    .addComponent(fieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelServicio)
+                    .addComponent(fieldServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelActivo)
+                    .addComponent(fieldActivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(labelNumeroDeEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDia)
+                    .addComponent(fieldDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(labelNumeroDeEmpleado, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void listaProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresMouseClicked
+        // TODO add your handling code here:
+        fieldNombre.setText(Datos.getListaProveedoresPrincipal().obtener(listaProveedores.getSelectedIndex()).getNombre());
+        fieldCodigo.setText(Datos.getListaProveedoresPrincipal().obtener(listaProveedores.getSelectedIndex()).getCodigoInterno());
+        fieldServicio.setText(Datos.getListaProveedoresPrincipal().obtener(listaProveedores.getSelectedIndex()).getServicio());
+
+        if (Datos.getListaProveedoresPrincipal().obtener(listaProveedores.getSelectedIndex()).isEstaActivo() == true) {
+            fieldActivo.setText("Si");
+        } else {
+            fieldActivo.setText("No");
+        }
+
+        fieldDia.setText(Datos.getListaProveedoresPrincipal().obtener(listaProveedores.getSelectedIndex()).getDiasDeServicio());
+
+
+    }//GEN-LAST:event_listaProveedoresMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField fieldActivo;
+    private javax.swing.JTextField fieldCodigo;
+    private javax.swing.JTextField fieldDia;
+    private javax.swing.JTextField fieldNombre;
+    private javax.swing.JTextField fieldServicio;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelActivo;
+    private javax.swing.JLabel labelCodigo;
+    private javax.swing.JLabel labelDia;
+    private javax.swing.JLabel labelNombre;
     private javax.swing.JPanel labelNumeroDeEmpleado;
+    private javax.swing.JLabel labelServicio;
+    private javax.swing.JList<String> listaProveedores;
     // End of variables declaration//GEN-END:variables
 
 }

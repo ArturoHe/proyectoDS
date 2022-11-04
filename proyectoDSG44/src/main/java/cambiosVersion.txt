@@ -27,3 +27,8 @@ Ver 1.1
 -Interfaz por parte Usuarios totalmente funcional
 -Datos y su pseudo persistencia totalmente funcional para usuarios
 -ListasEnlazadas implementadas en la parte Usuarios
+
+Ver 1.2
+-Interfaz por parte Aerolinea totalmente funcional
+-Datos y su pseudo persistencia totalmente funcional para aerolinea
+-Todas las estructuras implementadas en Aerolinea

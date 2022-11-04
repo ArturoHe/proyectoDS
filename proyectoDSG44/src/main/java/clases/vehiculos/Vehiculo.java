@@ -23,9 +23,9 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String matricula, String operativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible, int capacidadDeEnergia, boolean esElectrico) {
+    public Vehiculo(String matricula, boolean esOperativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible, int capacidadDeEnergia, boolean esElectrico) {
         this.matricula = matricula;
-        this.esOperativo = true;
+        this.esOperativo = esOperativo;
         this.descripcionEstado = descripcionEstado;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -36,6 +36,22 @@ public class Vehiculo {
         this.capacidadDeEnergia = capacidadDeEnergia;
         this.esElectrico = esElectrico;
     }
+
+    public Vehiculo(String matricula, boolean esOperativo, String descripcionEstado, String fabricante, String modelo, String aeropuertoActual, int capacidadDePasajeros, int capacidadDeCarga, int capacidadDeCombustible) {
+        this.matricula = matricula;
+        this.esOperativo = esOperativo;
+        this.descripcionEstado = descripcionEstado;
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+        this.aeropuertoActual = aeropuertoActual;
+        this.capacidadDePasajeros = capacidadDePasajeros;
+        this.capacidadDeCarga = capacidadDeCarga;
+        this.capacidadDeCombustible = capacidadDeCombustible;
+    }
+    
+    
+
+    
     
     //Get
 

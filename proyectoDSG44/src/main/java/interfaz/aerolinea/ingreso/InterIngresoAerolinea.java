@@ -5,11 +5,13 @@
  */
 package interfaz.aerolinea.ingreso;
 
+import estructuras.aerolinea.ListaEnlazadaEmpleados;
 import interfaz.aerolinea.interfazAerolinea.base.BaseInterfazEmpleados;
 import interfaz.launcher.PrincipalOpciones;
 import interfaz.usuario.registroIngreso.*;
 import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
 import java.awt.BorderLayout;
+import logica.Datos;
 
 /**
  *
@@ -22,6 +24,67 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
      */
     public InterIngresoAerolinea() {
         initComponents();
+    }
+
+    private boolean verificacionUsuario() {
+
+        ListaEnlazadaEmpleados lista = new ListaEnlazadaEmpleados();
+
+        lista = Datos.getListaEmpleadosPrincipal();
+
+        boolean esIngresoAprobado = false;
+
+        for (int i = 0; i < lista.longitud(); i++) {
+
+            String usuarioActual = lista.obtener(i).getUsuario();
+            String contraActual = lista.obtener(i).getPassword();
+
+            if (usuarioActual.equals(fieldUsuario.getText()) && (String.valueOf(contraActual)).equals(String.valueOf(fieldPassword.getPassword()))) {
+
+                System.out.println("si");
+                Datos.setIndiceEmpleado(i);
+                esIngresoAprobado = true;
+
+                break;
+
+            } else {
+
+                System.out.println("no");
+                esIngresoAprobado = false;
+
+            }
+
+        }
+
+        return esIngresoAprobado;
+    }
+
+    private boolean verificarEspacios() {
+
+        boolean espaciosLlenos;
+
+        if (fieldUsuario.getText().isEmpty()
+                || String.valueOf(fieldPassword.getPassword()).isEmpty()) {
+
+            espaciosLlenos = false;
+        } else {
+            espaciosLlenos = true;
+        }
+
+        return espaciosLlenos;
+    }
+
+    private void ingresar() {
+
+        BaseInterfazEmpleados InterfazEmpleado = new BaseInterfazEmpleados();
+        InterfazEmpleado.setSize(1300, 570);
+        InterfazEmpleado.setLocation(0, 0);
+
+        base.removeAll();
+        base.add(InterfazEmpleado, BorderLayout.CENTER);
+        base.revalidate();
+        base.repaint();
+
     }
 
     /**
@@ -74,7 +137,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
         });
 
         labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelErrorInicio.setText("dsadsadasdsad");
+        labelErrorInicio.setText(".");
 
         fieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,14 +220,24 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
         // TODO add your handling code here:
-        BaseInterfazEmpleados InterfazEmpleado = new BaseInterfazEmpleados();
-        InterfazEmpleado.setSize(1300, 570);
-        InterfazEmpleado.setLocation(0, 0);
+        boolean esIngreso = verificacionUsuario();
+        boolean esCompleto = verificarEspacios();
 
-        base.removeAll();
-        base.add(InterfazEmpleado, BorderLayout.CENTER);
-        base.revalidate();
-        base.repaint();
+        if (esCompleto == false) {
+
+            labelErrorInicio.setText("Todos los espacios deben estar diligenciados");
+
+        } else {
+
+            if (esIngreso == true) {
+                ingresar();
+            } else {
+
+                labelErrorInicio.setText("Usuario y/o contraseña incorrectos");
+
+            }
+        }
+
     }//GEN-LAST:event_botonFinalizarActionPerformed
 
     private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed

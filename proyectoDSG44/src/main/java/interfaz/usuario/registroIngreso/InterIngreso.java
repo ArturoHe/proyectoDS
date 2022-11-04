@@ -1,6 +1,6 @@
 package interfaz.usuario.registroIngreso;
 
-import estructuras.general.ListaEnlazadaPasajeros;
+import estructuras.Usuarios.ListaEnlazadaPasajeros;
 import interfaz.usuario.InterfazInicioUsuario;
 import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
 import java.awt.BorderLayout;

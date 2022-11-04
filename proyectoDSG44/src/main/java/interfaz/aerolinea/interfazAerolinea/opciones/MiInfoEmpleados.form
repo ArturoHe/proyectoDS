@@ -47,40 +47,50 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="335" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelTipoDoc1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="91" pref="91" max="-2" attributes="0"/>
-                          <Component id="fieldNombres" min="-2" pref="220" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="labelCargo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="fieldCargo" min="-2" pref="220" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelNumeroDoc1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="91" pref="91" max="-2" attributes="0"/>
-                          <Component id="fieldApellidos" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelTipoDoc" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
-                          <Component id="listaTiposDoc" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelFechaNacimiento" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Component id="listaAños" min="-2" pref="60" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="listaMeses" min="-2" pref="60" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="listaDias" min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelNumeroDoc" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelNumeroDoc2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelTipoDoc1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="91" pref="91" max="-2" attributes="0"/>
+                              <Component id="fieldNombres" min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fieldNumeroDocumento2" min="-2" pref="220" max="-2" attributes="0"/>
-                              <Component id="fieldNumeroDocumento1" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelTipoDoc" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                              <Component id="listaTiposDoc" min="-2" pref="220" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelNumeroDoc" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNumeroDoc2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fieldNumeroEmpleado" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="fieldNumeroDocumento1" min="-2" pref="220" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelFechaNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCargo1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fieldActivo" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="listaAños" min="-2" pref="60" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="listaMeses" min="-2" pref="60" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="listaDias" min="-2" pref="60" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -96,12 +106,12 @@
                       <Component id="labelTipoDoc1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="fieldNombres" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labelNumeroDoc1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldApellidos" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="fieldCargo" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="labelCargo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelTipoDoc" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="listaTiposDoc" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -114,16 +124,21 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelNumeroDoc2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldNumeroDocumento2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="fieldNumeroEmpleado" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelFechaNacimiento" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="listaAños" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="listaMeses" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="listaDias" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="179" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelCargo1" min="-2" max="-2" attributes="0"/>
+                      <Component id="fieldActivo" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="188" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -137,16 +152,6 @@
         <Component class="javax.swing.JTextField" name="fieldNombres">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fieldApellidos">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelNumeroDoc1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelTipoDoc">
@@ -421,7 +426,7 @@
             <Property name="text" type="java.lang.String" value="Numero de Empleado"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fieldNumeroDocumento2">
+        <Component class="javax.swing.JTextField" name="fieldNumeroEmpleado">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -429,7 +434,39 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldNumeroDocumento2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldNumeroEmpleadoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelCargo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fieldCargo">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCargoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelCargo1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Activo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fieldActivo">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldActivoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

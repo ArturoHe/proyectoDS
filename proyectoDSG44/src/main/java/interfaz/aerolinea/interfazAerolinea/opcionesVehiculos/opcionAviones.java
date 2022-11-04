@@ -33,25 +33,28 @@ public class opcionAviones extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1004, 474));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setMaximumSize(new java.awt.Dimension(1004, 474));
         jPanel2.setMinimumSize(new java.awt.Dimension(1004, 474));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1004, 474));
 
-        jLabel1.setText("Esto es Aviones");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Estamos trabajando para brindarte un mejor servicio");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(386, 386, 386)
+                .addGap(222, 222, 222)
                 .addComponent(jLabel1)
-                .addContainerGap(537, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(207, 207, 207)
+                .addGap(209, 209, 209)
                 .addComponent(jLabel1)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
 
         add(jPanel2, java.awt.BorderLayout.CENTER);

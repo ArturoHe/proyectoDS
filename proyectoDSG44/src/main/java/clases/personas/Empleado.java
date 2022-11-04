@@ -18,15 +18,15 @@ public class Empleado extends Persona{
     public Empleado() {
     }
 
-    public Empleado(String cargo, int codigo, int sueldoMensual, boolean esActivo, String usuario, String password, String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento, boolean esMenor, ListaEnlazadaResponsables responsables) {
-        super(usuario, password, nombre, tipoDeDocumento, numeroDeDocumento, añoDeNacimiento, mesDeNacimiento, diaDenacimiento, esMenor, responsables);
+    public Empleado(String cargo, int codigo, int sueldoMensual, boolean esActivo, String usuario, String password, String nombre, String tipoDeDocumento, String numeroDeDocumento, int añoDeNacimiento, int mesDeNacimiento, int diaDenacimiento) {
+        super(usuario, password, nombre, tipoDeDocumento, numeroDeDocumento, añoDeNacimiento, mesDeNacimiento, diaDenacimiento);
         this.cargo = cargo;
         this.codigo = codigo;
         this.sueldoMensual = sueldoMensual;
         this.esActivo = esActivo;
     }
     
-    //Get
+    //Getlast_name
 
     public String getCargo() {
         return cargo;

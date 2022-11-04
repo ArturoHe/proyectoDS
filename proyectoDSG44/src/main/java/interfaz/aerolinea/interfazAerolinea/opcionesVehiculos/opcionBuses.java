@@ -4,6 +4,9 @@
  */
 package interfaz.aerolinea.interfazAerolinea.opcionesVehiculos;
 
+import javax.swing.DefaultListModel;
+import logica.Datos;
+
 /**
  *
  * @author Arturo
@@ -11,10 +14,81 @@ package interfaz.aerolinea.interfazAerolinea.opcionesVehiculos;
 public class opcionBuses extends javax.swing.JPanel {
 
     /**
-     * Creates new form opcionBuses
+     * Creates new form opcionAutomoviles
      */
     public opcionBuses() {
         initComponents();
+
+        iniciarParqueadero1();
+
+    }
+
+    private void iniciarParqueadero1() {
+
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+
+        while (Datos.getPilaBusesPrincipal().pilaVacia() != true) {
+
+            listModel.addElement(Datos.getPilaBusesPrincipal().obtenerElementoPila().getFabricante());
+
+            Datos.getColaBusesPrincipal().agregarALaCola(Datos.getPilaBusesPrincipal().obtenerElementoPila());
+
+            Datos.getPilaBusesPrincipal().desapilar();
+
+        }
+
+        listaParqueadero.setModel(listModel);
+
+    }
+
+    private void iniciarTaller() {
+
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+
+        while (Datos.getColaBusesPrincipal().colaVacia() == false) {
+
+            listModel.addElement(Datos.getColaBusesPrincipal().obtenerPrimeroDeLaCola().getFabricante());
+            Datos.getPilaBusesPrincipal().apilar(Datos.getColaBusesPrincipal().obtenerPrimeroDeLaCola());
+
+            Datos.getColaBusesPrincipal().eliminarDeLaCola();
+
+        }
+
+        listaTaller.setModel(listModel);
+
+    }
+
+    private void iniciarParqueadero2() {
+
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+
+        while (Datos.getPilaBusesPrincipal().pilaVacia() != true) {
+
+            listModel.addElement(Datos.getPilaBusesPrincipal().obtenerElementoPila().getFabricante());
+
+            Datos.getColaBusesPrincipal().agregarALaCola(Datos.getPilaBusesPrincipal().obtenerElementoPila());
+
+            Datos.getPilaBusesPrincipal().desapilar();
+
+        }
+
+        ListaPaqueadero2.setModel(listModel);
+
+    }
+
+    private void limpiarLista1() {
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+        listaParqueadero.setModel(listModel);
+    }
+
+    private void limpiarLista2() {
+        DefaultListModel listModel;
+        listModel = new DefaultListModel();
+        listaTaller.setModel(listModel);
     }
 
     /**
@@ -27,38 +101,187 @@ public class opcionBuses extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelParqueadero = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListaPaqueadero2 = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaParqueadero = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listaTaller = new javax.swing.JList<>();
+        labelParqueadero2 = new javax.swing.JLabel();
+        labelTaller = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
 
         setMaximumSize(new java.awt.Dimension(1004, 474));
+        setPreferredSize(new java.awt.Dimension(1004, 474));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setMaximumSize(new java.awt.Dimension(1004, 474));
         jPanel2.setMinimumSize(new java.awt.Dimension(1004, 474));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1004, 474));
 
-        jLabel1.setText("Esto es buses");
+        labelParqueadero.setText("Parqueadero");
+
+        ListaPaqueadero2.setEnabled(false);
+        ListaPaqueadero2.setMaximumSize(new java.awt.Dimension(420, 270));
+        ListaPaqueadero2.setMinimumSize(new java.awt.Dimension(420, 270));
+        jScrollPane1.setViewportView(ListaPaqueadero2);
+
+        listaParqueadero.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listaParqueadero.setEnabled(false);
+        listaParqueadero.setMaximumSize(new java.awt.Dimension(420, 270));
+        listaParqueadero.setMinimumSize(new java.awt.Dimension(420, 270));
+        listaParqueadero.setPreferredSize(null);
+        jScrollPane2.setViewportView(listaParqueadero);
+
+        listaTaller.setEnabled(false);
+        listaTaller.setMaximumSize(new java.awt.Dimension(420, 270));
+        listaTaller.setMinimumSize(new java.awt.Dimension(420, 270));
+        jScrollPane3.setViewportView(listaTaller);
+
+        labelParqueadero2.setText("Parqueadero Final");
+
+        labelTaller.setText("Taller");
+
+        jButton1.setText("Llevar al taller");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Arreglar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Es una pila en la que el primer carro\n ingresado tiene que esperar a que \nsalgan los que están detras.");
+        jTextArea1.setEnabled(false);
+        jScrollPane4.setViewportView(jTextArea1);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Es una cola, por tanto el primero que ingresa\nes el que estaba en lo mas alto de la pila\n(el que entró de ultimo al parqueadero).");
+        jTextArea2.setEnabled(false);
+        jScrollPane5.setViewportView(jTextArea2);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jTextArea3.setText("Es una pila por tanto se invierte el orden en\nel que venian.");
+        jTextArea3.setEnabled(false);
+        jScrollPane6.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(386, 386, 386)
-                .addComponent(jLabel1)
-                .addContainerGap(549, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(88, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(labelParqueadero)
+                        .addGap(231, 231, 231)
+                        .addComponent(labelTaller)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelParqueadero2)
+                        .addGap(177, 177, 177))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(jLabel1)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane5)
+                    .addComponent(jScrollPane6))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelParqueadero)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelTaller)
+                        .addComponent(labelParqueadero2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        iniciarTaller();
+        limpiarLista1();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        iniciarParqueadero2();
+        limpiarLista2();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> ListaPaqueadero2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JLabel labelParqueadero;
+    private javax.swing.JLabel labelParqueadero2;
+    private javax.swing.JLabel labelTaller;
+    private javax.swing.JList<String> listaParqueadero;
+    private javax.swing.JList<String> listaTaller;
     // End of variables declaration//GEN-END:variables
 }

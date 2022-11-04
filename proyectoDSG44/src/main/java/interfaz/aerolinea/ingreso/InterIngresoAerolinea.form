@@ -141,7 +141,7 @@
         <Component class="javax.swing.JLabel" name="labelErrorInicio">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="dsadsadasdsad"/>
+            <Property name="text" type="java.lang.String" value="."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="fieldPassword">
