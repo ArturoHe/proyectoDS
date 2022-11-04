@@ -71,10 +71,13 @@ public class ContactosEmergenciaUsuarios extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(1010, 558));
         setMinimumSize(new java.awt.Dimension(1010, 558));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
+        panelData1.setOpaque(false);
         panelData1.setPreferredSize(new java.awt.Dimension(1010, 558));
 
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1010, 558));
 
         listaContactos.setModel(new javax.swing.AbstractListModel<String>() {

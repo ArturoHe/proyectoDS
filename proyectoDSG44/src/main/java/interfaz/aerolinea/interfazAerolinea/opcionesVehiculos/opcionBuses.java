@@ -120,11 +120,13 @@ public class opcionBuses extends javax.swing.JPanel {
         jTextArea3 = new javax.swing.JTextArea();
 
         setMaximumSize(new java.awt.Dimension(1004, 474));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1004, 474));
         setLayout(new java.awt.BorderLayout());
 
         jPanel2.setMaximumSize(new java.awt.Dimension(1004, 474));
         jPanel2.setMinimumSize(new java.awt.Dimension(1004, 474));
+        jPanel2.setOpaque(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(1004, 474));
 
         labelParqueadero.setText("Parqueadero");
@@ -226,7 +228,7 @@ public class opcionBuses extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
                     .addComponent(jScrollPane6))
                 .addGap(61, 61, 61)

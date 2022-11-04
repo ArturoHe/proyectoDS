@@ -116,18 +116,20 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
         dialogoRegistro = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         base = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
         fieldUsuario = new javax.swing.JTextField();
-        botonVerContra = new javax.swing.JButton();
         fieldPassword = new javax.swing.JPasswordField();
         labelContraseña = new javax.swing.JLabel();
         labelRepetirContra = new javax.swing.JLabel();
+        fieldRepetirPassword = new javax.swing.JPasswordField();
         botonCancelar = new javax.swing.JButton();
         botonFinalizar = new javax.swing.JButton();
-        fieldRepetirPassword = new javax.swing.JPasswordField();
+        botonVerContra = new javax.swing.JButton();
         botonVerRepContra = new javax.swing.JButton();
         labelError = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         dialogoRegistro.setSize(new java.awt.Dimension(400, 300));
 
@@ -152,16 +154,64 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(1300, 570));
         setMinimumSize(new java.awt.Dimension(1300, 570));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
+        base.setOpaque(false);
         base.setPreferredSize(new java.awt.Dimension(1300, 570));
 
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Creacion de usuario");
+        jPanel1.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, -1));
 
+        labelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelUsuario.setText("Usuario");
+        jPanel1.add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 220, -1));
+
+        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 220, -1));
+
+        labelContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        labelContraseña.setText("Contraseña");
+        jPanel1.add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        labelRepetirContra.setForeground(new java.awt.Color(255, 255, 255));
+        labelRepetirContra.setText("Repetir Contraseña");
+        jPanel1.add(labelRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+
+        fieldRepetirPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldRepetirPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldRepetirPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 220, -1));
+
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, -1));
+
+        botonFinalizar.setText("Finalizar");
+        botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFinalizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 80, -1));
 
         botonVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -171,36 +221,7 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
                 botonVerContraMouseReleased(evt);
             }
         });
-
-        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldPasswordActionPerformed(evt);
-            }
-        });
-
-        labelContraseña.setText("Contraseña");
-
-        labelRepetirContra.setText("Repetir Contraseña");
-
-        botonCancelar.setText("Cancelar");
-        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCancelarActionPerformed(evt);
-            }
-        });
-
-        botonFinalizar.setText("Finalizar");
-        botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonFinalizarActionPerformed(evt);
-            }
-        });
-
-        fieldRepetirPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldRepetirPasswordActionPerformed(evt);
-            }
-        });
+        jPanel1.add(botonVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 20, 20));
 
         botonVerRepContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -210,67 +231,30 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
                 botonVerRepContraMouseReleased(evt);
             }
         });
+        jPanel1.add(botonVerRepContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 20, 20));
 
         labelError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelError.setText(".");
+        jPanel1.add(labelError, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 360, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/fondoIngresoEmpresa.png"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
         base.setLayout(baseLayout);
         baseLayout.setHorizontalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
-                .addGap(441, 441, 441)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelUsuario)
-                        .addGap(100, 100, 100)
-                        .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelContraseña)
-                        .addGap(80, 80, 80)
-                        .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(labelRepetirContra)
-                        .addGap(40, 40, 40)
-                        .addComponent(fieldRepetirPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(botonVerRepContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200)
-                        .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addGap(423, 423, 423)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(423, Short.MAX_VALUE))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(labelTitulo)
-                .addGap(8, 8, 8)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelUsuario)
-                    .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelContraseña)
-                    .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelRepetirContra)
-                    .addComponent(fieldRepetirPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerRepContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCancelar)
-                    .addComponent(botonFinalizar))
-                .addGap(32, 32, 32)
-                .addComponent(labelError)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addGap(130, 130, 130)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -367,7 +351,9 @@ public class RegistroCrearUserPass extends javax.swing.JPanel {
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JPasswordField fieldRepetirPassword;
     private javax.swing.JTextField fieldUsuario;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelContraseña;
     private javax.swing.JLabel labelError;
     private javax.swing.JLabel labelRepetirContra;

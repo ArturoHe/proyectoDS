@@ -72,11 +72,13 @@ public class MiInfoEmpleados extends javax.swing.JPanel {
         fieldActivo = new javax.swing.JTextField();
 
         setMaximumSize(new java.awt.Dimension(1010, 558));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1010, 558));
         setLayout(new java.awt.BorderLayout());
 
         labelNumeroDeEmpleado.setBackground(new java.awt.Color(51, 255, 204));
         labelNumeroDeEmpleado.setMinimumSize(new java.awt.Dimension(1010, 558));
+        labelNumeroDeEmpleado.setOpaque(false);
         labelNumeroDeEmpleado.setPreferredSize(new java.awt.Dimension(1010, 558));
 
         labelTipoDoc1.setText("Nombres");

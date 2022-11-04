@@ -8,8 +8,6 @@ package interfaz.aerolinea.ingreso;
 import estructuras.aerolinea.ListaEnlazadaEmpleados;
 import interfaz.aerolinea.interfazAerolinea.base.BaseInterfazEmpleados;
 import interfaz.launcher.PrincipalOpciones;
-import interfaz.usuario.registroIngreso.*;
-import interfaz.usuario.interfazUsuario.BaseInterfazUsuario;
 import java.awt.BorderLayout;
 import logica.Datos;
 
@@ -24,6 +22,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
      */
     public InterIngresoAerolinea() {
         initComponents();
+
     }
 
     private boolean verificacionUsuario() {
@@ -97,30 +96,53 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
     private void initComponents() {
 
         base = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
-        fieldUsuario = new javax.swing.JTextField();
         labelUsuario = new javax.swing.JLabel();
+        fieldUsuario = new javax.swing.JTextField();
+        fieldPassword = new javax.swing.JPasswordField();
         labelContraseña = new javax.swing.JLabel();
         botonCancelar = new javax.swing.JButton();
         botonFinalizar = new javax.swing.JButton();
-        labelErrorInicio = new javax.swing.JLabel();
-        fieldPassword = new javax.swing.JPasswordField();
         botonVerContra = new javax.swing.JButton();
+        labelErrorInicio = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1300, 570));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         base.setBackground(new java.awt.Color(255, 255, 153));
         base.setMinimumSize(new java.awt.Dimension(1300, 570));
+        base.setOpaque(false);
         base.setPreferredSize(new java.awt.Dimension(1300, 570));
 
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         labelTitulo.setFont(new java.awt.Font("Alumni Sans Light", 0, 24)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Ingreso Empleados");
+        jPanel1.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, -1));
 
+        labelUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        labelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelUsuario.setText("Usuario");
+        jPanel1.add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jPanel1.add(fieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 220, -1));
 
+        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 220, -1));
+
+        labelContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        labelContraseña.setForeground(new java.awt.Color(255, 255, 255));
         labelContraseña.setText("Contraseña");
+        jPanel1.add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +150,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
                 botonCancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 80, -1));
 
         botonFinalizar.setText("Ingresar");
         botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,15 +158,7 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
                 botonFinalizarActionPerformed(evt);
             }
         });
-
-        labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelErrorInicio.setText(".");
-
-        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldPasswordActionPerformed(evt);
-            }
-        });
+        jPanel1.add(botonFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 80, -1));
 
         botonVerContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -153,54 +168,35 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
                 botonVerContraMouseReleased(evt);
             }
         });
+        botonVerContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVerContraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonVerContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 20, 20));
+
+        labelErrorInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelErrorInicio.setText(".");
+        jPanel1.add(labelErrorInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 450, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/fondoIngresoEmpresa.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
         base.setLayout(baseLayout);
         baseLayout.setHorizontalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseLayout.createSequentialGroup()
-                .addGap(254, 254, 254)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200)
-                        .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelErrorInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseLayout.createSequentialGroup()
-                        .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelUsuario)
-                            .addComponent(labelContraseña))
-                        .addGap(80, 80, 80)
-                        .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(baseLayout.createSequentialGroup()
-                                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(656, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, baseLayout.createSequentialGroup()
+                .addContainerGap(423, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(423, 423, 423))
         );
         baseLayout.setVerticalGroup(
             baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(labelTitulo)
-                .addGap(8, 8, 8)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelUsuario)
-                    .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelContraseña)
-                    .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVerContra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(baseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCancelar)
-                    .addComponent(botonFinalizar))
-                .addGap(18, 18, 18)
-                .addComponent(labelErrorInicio)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGap(130, 130, 130)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         add(base, java.awt.BorderLayout.CENTER);
@@ -255,6 +251,10 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
         fieldPassword.setEchoChar('*');
     }//GEN-LAST:event_botonVerContraMouseReleased
 
+    private void botonVerContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerContraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonVerContraActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel base;
@@ -263,6 +263,8 @@ public class InterIngresoAerolinea extends javax.swing.JPanel {
     private javax.swing.JButton botonVerContra;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUsuario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelContraseña;
     private javax.swing.JLabel labelErrorInicio;
     private javax.swing.JLabel labelTitulo;

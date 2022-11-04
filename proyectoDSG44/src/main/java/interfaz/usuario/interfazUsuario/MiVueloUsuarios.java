@@ -33,13 +33,17 @@ public class MiVueloUsuarios extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(1010, 558));
         setMinimumSize(new java.awt.Dimension(1010, 558));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1010, 558));
 
+        panelData1.setOpaque(false);
         panelData1.setPreferredSize(new java.awt.Dimension(1010, 558));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Estamos Trabajando para mejorar tu experiencia");
 
         javax.swing.GroupLayout panelData1Layout = new javax.swing.GroupLayout(panelData1);
@@ -47,16 +51,16 @@ public class MiVueloUsuarios extends javax.swing.JPanel {
         panelData1Layout.setHorizontalGroup(
             panelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelData1Layout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
+                .addContainerGap(249, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(243, 243, 243))
+                .addGap(249, 249, 249))
         );
         panelData1Layout.setVerticalGroup(
             panelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelData1Layout.createSequentialGroup()
-                .addGap(223, 223, 223)
+                .addGap(263, 263, 263)
                 .addComponent(jLabel1)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -3,7 +3,6 @@ package interfaz.launcher;
 import java.awt.BorderLayout;
 import java.awt.geom.RoundRectangle2D;
 
-import javax.swing.JPanel;
 import logica.Datos;
 
 /**
@@ -79,6 +78,8 @@ public class Launcher extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelOpcionesVentana.setOpaque(false);
+
         botonMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/botonMinimizar.png"))); // NOI18N
         botonMinimizar.setBorderPainted(false);
         botonMinimizar.setContentAreaFilled(false);
@@ -91,6 +92,11 @@ public class Launcher extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonMinimizarMouseExited(evt);
+            }
+        });
+        botonMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMinimizarActionPerformed(evt);
             }
         });
 
@@ -134,6 +140,7 @@ public class Launcher extends javax.swing.JFrame {
         getContentPane().add(panelOpcionesVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, 120, 30));
 
         base.setBackground(new java.awt.Color(153, 255, 153));
+        base.setOpaque(false);
 
         javax.swing.GroupLayout baseLayout = new javax.swing.GroupLayout(base);
         base.setLayout(baseLayout);
@@ -149,7 +156,7 @@ public class Launcher extends javax.swing.JFrame {
         getContentPane().add(base, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1300, 570));
 
         fondo.setBackground(new java.awt.Color(204, 255, 153));
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/filtro.png"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/fondo.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -189,6 +196,10 @@ public class Launcher extends javax.swing.JFrame {
         minimizarPrograma();
     }//GEN-LAST:event_botonMinimizarMouseClicked
 
+    private void botonMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMinimizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonMinimizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -200,7 +211,7 @@ public class Launcher extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

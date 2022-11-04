@@ -41,13 +41,16 @@ public class PanelBaseVehiculos extends javax.swing.JPanel {
         dataB = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1010, 558));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         panelData.setBackground(new java.awt.Color(102, 255, 0));
         panelData.setMinimumSize(new java.awt.Dimension(1010, 558));
+        panelData.setOpaque(false);
         panelData.setPreferredSize(new java.awt.Dimension(1010, 558));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setOpaque(false);
 
         botonAutomoviles.setText("Automoviles");
         botonAutomoviles.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +109,7 @@ public class PanelBaseVehiculos extends javax.swing.JPanel {
 
         dataB.setMaximumSize(new java.awt.Dimension(1004, 474));
         dataB.setMinimumSize(new java.awt.Dimension(1004, 474));
+        dataB.setOpaque(false);
         dataB.setPreferredSize(new java.awt.Dimension(1004, 474));
 
         javax.swing.GroupLayout dataBLayout = new javax.swing.GroupLayout(dataB);
@@ -126,7 +130,7 @@ public class PanelBaseVehiculos extends javax.swing.JPanel {
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dataB, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(dataB, javax.swing.GroupLayout.PREFERRED_SIZE, 998, Short.MAX_VALUE)
                     .addGroup(panelDataLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 362, Short.MAX_VALUE)))

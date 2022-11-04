@@ -1,0 +1,24 @@
+El proyeto sirve como una interfaz para una aerolinea, hay partes que no están 
+terminadas,esto pensando en el futuro desarrollo con el resto de las 
+estructuras de datos.
+
+
+==================================================================
+Para ingresar por Usuarios se puede usar la siguiente combinacion
+
+Usuario: a
+Contraseña: a
+
+==================================================================
+Para ingresar por Aerolinea se puede usar la siguiente combinacion
+
+Usuario: b
+Contraseña: b
+
+==================================================================
+
+El proyecto tambien se puede encontrar en el siguiente repositorio:
+
+https://github.com/ArturoHe/proyectoDS.git
+
+*****************************FIN***********************************
